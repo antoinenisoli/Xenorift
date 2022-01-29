@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  speed: 80
+  speed: 50
   damage: 10
 --- !u!54 &5644854261534586135
 Rigidbody:

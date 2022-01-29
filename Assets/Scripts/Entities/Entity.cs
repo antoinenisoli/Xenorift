@@ -6,7 +6,8 @@ public abstract class Entity : MonoBehaviour
 {
     public Health Health;
     public Team team;
-    [SerializeField] protected float speed = 10f;
+    public int direction = 1;
+    [SerializeField] protected float movingSpeed = 15f;
     [SerializeField] protected float acceleration = 10f;
     [SerializeField] protected float friction = 10f;
     protected Rigidbody rb;
