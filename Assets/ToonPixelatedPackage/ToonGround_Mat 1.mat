@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ToonGround_Mat 1
-  m_Shader: {fileID: 4800000, guid: 41dbe15563ad28c41b9be1e22a22cdd5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 887928d279663d5449e242808453d1d0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 119c2536529c6eb4dba3cbe897fd2811, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -51,11 +55,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Palette:
+        m_Texture: {fileID: 2800000, guid: 1d2cde19061d5418a84dd491b0ce85d0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RenderTexture:
+        m_Texture: {fileID: 8400000, guid: 1528acf246a19472fb2d7ada997fea94, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThresholdMapRCellGShadow:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -64,30 +84,47 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AO_LightInput: 1
+    - _AO_Threshold: 0.44
     - _Brightness: 0.51
     - _BumpScale: 1
+    - _CellThreshold: 6
     - _Cutoff: 0.5
+    - _Debug: 0
     - _Detail: 0.348
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Fade: 0
     - _Float0: 0.08
+    - _FresnelShadow: 0.2085736
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Hue: 0.02
+    - _HueSpec: -1
+    - _LightingColorweight: 0.7860179
     - _Metallic: 0
     - _Mode: 0
+    - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Outline: 0.1
     - _OutlineWidth: 0.2
     - _Parallax: 0.02
+    - _Saturation: 0.12
+    - _SaturationSpec: 0
+    - _ShadowAmbient: 0.2782227
+    - _Shadow_Threshold: 0.583
     - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
+    - _SpecPow: 28.6
     - _SpecularHighlights: 1
     - _SpecularIntensity: 100
     - _SrcBlend: 1
     - _Strength: 0.648
     - _Transparent: 1
     - _UVSec: 0
+    - _Value: -0.54
+    - _ValueSpec: 0.6475888
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
@@ -95,6 +132,7 @@ Material:
     - _Color0: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowCOlor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.7264151, g: 0.16789784, b: 0.16789784, a: 1}
   m_BuildTextureStacks: []
