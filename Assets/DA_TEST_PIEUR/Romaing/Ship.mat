@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ship
+  m_Shader: {fileID: 4800000, guid: 887928d279663d5449e242808453d1d0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 1d73f493132bb4a488750f4226494020, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 3ce9312a13ea2194289c60a5e0b7a89d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThresholdMapRCellGShadow:
+        m_Texture: {fileID: 2800000, guid: a58718a0f91d5974cb89c5d40b5d385f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AO_LightInput: 1
+    - _AO_Threshold: 0.6661413
+    - _CellThreshold: 1.348499
+    - _Debug: 0
+    - _DistancemaxFresnel: 20
+    - _DistanceminFresnel: 10
+    - _Float0: 90
+    - _FresnelAmountMIN: 0.6472826
+    - _FresnelShadow: 0.47
+    - _Hue: -0.5
+    - _HueSpec: -1
+    - _LightingColorweight: 0.7860179
+    - _NormalScale: 1
+    - _Saturation: 0
+    - _SaturationSpec: 0
+    - _ShadowAmbient: 0.091
+    - _Shadow_Threshold: 0.53
+    - _SpecPow: 34.9
+    - _Value: 1
+    - _ValueSpec: 0.6475888
+    - __dirty: 0
+    m_Colors:
+    - _FresnelL: {r: 0.9078603, g: 0, b: 1, a: 0}
+    - _FresnelR: {r: 0.23201916, g: 1, b: 0, a: 0}
+    - _ShadowCOlor: {r: 0.6981132, g: 0.4511737, b: 0.10800992, a: 0}
+  m_BuildTextureStacks: []

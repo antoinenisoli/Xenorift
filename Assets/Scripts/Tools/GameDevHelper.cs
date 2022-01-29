@@ -60,4 +60,12 @@ public class GameDevHelper : MonoBehaviour
         T randomBiome = (T)array.GetValue(Random.Range(0, array.Length));
         return randomBiome;
     }
+
+    public static void DrawRect(Rect rect)
+    {
+        Gizmos.DrawLine(rect.min, new Vector3(rect.min.x, rect.position.y, rect.max.y));
+        Gizmos.DrawLine(new Vector3(rect.min.x, rect.position.y, rect.max.y), rect.max);
+        Gizmos.DrawLine(rect.max, new Vector3(rect.max.x, rect.position.y, rect.min.y));
+        Gizmos.DrawLine(rect.min, new Vector3(rect.max.x, rect.position.y, rect.min.y));
+    }
 }
