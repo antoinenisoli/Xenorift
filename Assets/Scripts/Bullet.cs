@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Team
+{
+    Player,
+    Enemy,
+}
+
 public class Bullet : MonoBehaviour
 {
     Rigidbody rb;
+    [SerializeField] Team team;
     [SerializeField] float speed = 10f;
+    [SerializeField] int damage = 10;
 
     private void Awake()
     {
@@ -14,7 +22,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Entity entity = other.GetComponent<Entity>();
+        if (entity && entity.team != team)
+        {
+            entity.TakeDamages(damage);
+            Destroy(gameObject);
+        }
     }
 
     public void Shot(Vector3 direction)
