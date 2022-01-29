@@ -51,16 +51,21 @@ MonoBehaviour:
     currentHealth: 0
     maxHealth: 10
   team: 1
-  speed: 10
+  direction: 1
+  movingSpeed: 15
   acceleration: 10
   friction: 10
   target: {fileID: 0}
-  stopDistance: 15
-  attackDistance: 50
+  stopDistance: 10
+  attackDistance: 25
   shooting:
-    shootPos: {fileID: 6200190292877938492}
-    bulletPrefab: {fileID: 864542070921596931, guid: 9cafbf7bbc119a84d86d0e4cf180bbb3, type: 3}
-    shootRate: 0.5
+    shootPositions:
+    - {fileID: 6200190292877938492}
+    profilesToUse:
+    - name: Regular
+      bullet: {fileID: 864542070921596931, guid: 9cafbf7bbc119a84d86d0e4cf180bbb3, type: 3}
+      shootRate: 0.5
+      shootTimer: 0
 --- !u!54 &6200190292159806164
 Rigidbody:
   m_ObjectHideFlags: 0

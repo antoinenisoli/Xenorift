@@ -6,9 +6,44 @@ using UnityEngine;
 public class ShipController : Entity
 {
     [Header(nameof(ShipController))]
-    [SerializeField] Shooting shooting;
+    [SerializeField] float shootingSpeed = 10f;
+    [SerializeField] PlayerShooting shooting;
     Vector3 inputs;
     Vector3 vel;
+
+    [SerializeField] Color gizmoColor = Color.white;
+    [SerializeField] Vector2 moveArea;
+    Vector3 basePosition;
+    [HideInInspector] public Bounds moveBounds;
+    bool isShooting;
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying)
+        {
+            moveBounds.size = new Vector3(moveArea.x, 0, moveArea.y);
+            moveBounds.center = transform.position;
+        }
+
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawCube(moveBounds.center, moveBounds.size);
+    }
+
+    private void Start()
+    {
+        shooting.Init();
+        basePosition = transform.position;
+        moveBounds.size = new Vector3(moveArea.x, 0, moveArea.y);
+        moveBounds.center = basePosition;
+    }
+
+    Rect MoveRect()
+    {
+        if (Application.isPlaying)
+            return new Rect(basePosition, moveArea);
+        else
+            return new Rect(transform.position, moveArea);
+    }
 
     void GetInputs()
     {
@@ -27,25 +62,40 @@ public class ShipController : Entity
 
     void ManageShooting()
     {
-        if (Input.GetButton("Shoot"))
-            shooting.Update(true);
+        isShooting = Input.GetButton("Shoot");
+        shooting.Update(isShooting);
+    }
+
+    float GetSpeed()
+    {
+        if (isShooting)
+            return shootingSpeed;
         else
-            shooting.Update(false);
+            return movingSpeed;
     }
 
     private void Update()
     {
         GetInputs();
-        vel = inputs * speed;
+        vel = inputs * GetSpeed();
         vel.y = rb.velocity.y;
 
         ManageShooting();
         if (Input.GetButtonDown("FlipShip"))
-            transform.Rotate(Vector3.up * 180);
+        {
+            EventManager.Instance.onPlayerFlip.Invoke();
+            direction *= -1;
+            transform.rotation = Quaternion.Euler(Vector3.up * 90 * direction);
+        }
     }
 
     private void FixedUpdate()
     {
         Move();
+        if (!moveBounds.Contains(transform.position))
+        {
+            print("out");
+            rb.velocity = -rb.velocity.normalized * GetSpeed();
+        }
     }
 }
