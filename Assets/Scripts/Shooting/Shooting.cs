@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Shooting
 {
-    public Transform[] shootPositions;
     ShootProfile profile;
 
     public Dictionary<string, ShootProfile> savedProfiles = new Dictionary<string, ShootProfile>();
@@ -24,7 +23,7 @@ public class Shooting
 
     public virtual void Shoot(ShootProfile profile)
     {
-        foreach (var item in shootPositions)
+        foreach (var item in profile.shootPositions)
         {
             if (!profile.Available())
                 continue;

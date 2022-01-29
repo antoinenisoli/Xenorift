@@ -74,6 +74,15 @@ public class ShipController : Entity
             return movingSpeed;
     }
 
+    void ClampPosition()
+    {
+        if (!moveBounds.Contains(transform.position))
+        {
+            print("out");
+            rb.velocity *= -1;
+        }
+    }
+
     private void Update()
     {
         GetInputs();
@@ -85,17 +94,12 @@ public class ShipController : Entity
         {
             EventManager.Instance.onPlayerFlip.Invoke();
             direction *= -1;
-            transform.rotation = Quaternion.Euler(Vector3.up * 90 * direction);
         }
     }
 
     private void FixedUpdate()
     {
         Move();
-        if (!moveBounds.Contains(transform.position))
-        {
-            print("out");
-            rb.velocity = -rb.velocity.normalized * GetSpeed();
-        }
+        ClampPosition();
     }
 }
