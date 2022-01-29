@@ -15,6 +15,7 @@ MonoBehaviour:
   settings:
   - {fileID: 7049228415198014920}
   - {fileID: 3533343500180552208}
+  - {fileID: 6663242528382065745}
 --- !u!114 &3533343500180552208
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -67,14 +68,14 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: -29
-  tint:
     overrideState: 1
-    value: 0
-  colorFilter:
+    value: 52
+  tint:
     overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: 24
+  colorFilter:
+    overrideState: 1
+    value: {r: 1, g: 0.63826346, b: 0.2396226, a: 1}
   hueShift:
     overrideState: 0
     value: 76
@@ -89,7 +90,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 100
+    value: 42
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -97,7 +98,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   mixerRedOutBlueIn:
-    overrideState: 1
+    overrideState: 0
     value: 18
   mixerGreenOutRedIn:
     overrideState: 0
@@ -121,11 +122,11 @@ MonoBehaviour:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
-    overrideState: 1
-    value: {x: 0.5994421, y: 0.79687935, z: 1, w: 0}
+    overrideState: 0
+    value: {x: 0.5994421, y: 0.79687935, z: 1, w: 0.13089006}
   gain:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 1, z: 1, w: 1}
   masterCurve:
     overrideState: 0
     value:
@@ -1326,6 +1327,55 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &6663242528382065745
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
+  m_Name: AmbientOcclusion
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 0
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.54
+  color:
+    overrideState: 1
+    value: {r: 0, g: 0, b: 0, a: 1}
+  ambientOnly:
+    overrideState: 0
+    value: 1
+  noiseFilterTolerance:
+    overrideState: 0
+    value: 0
+  blurTolerance:
+    overrideState: 0
+    value: -4.6
+  upsampleTolerance:
+    overrideState: 0
+    value: -12
+  thicknessModifier:
+    overrideState: 0
+    value: 1
+  directLightingStrength:
+    overrideState: 0
+    value: 0
+  radius:
+    overrideState: 0
+    value: 0.25
+  quality:
+    overrideState: 0
+    value: 2
 --- !u!114 &7049228415198014920
 MonoBehaviour:
   m_ObjectHideFlags: 3

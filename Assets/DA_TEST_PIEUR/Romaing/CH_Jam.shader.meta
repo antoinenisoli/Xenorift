@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6379ae3fab3becb4f8732197daed7851
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _NormalMap: {fileID: 2800000, guid: 71f8c3c168959e3489c6fd33f3402f1e, type: 3}
+  - _ThresholdMapRCellGShadow: {fileID: 2800000, guid: 27c4d73d01a535645b616213aa842a5a,
+      type: 3}
+  - _Albedo: {fileID: 2800000, guid: af520b8dea87bd24dbfd9c7e36b41b11, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
