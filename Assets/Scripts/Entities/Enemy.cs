@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Enemy : Entity
 {
     [Header(nameof(Enemy))]
-    [SerializeField] protected ShipController target;
+    [SerializeField] protected PlayerController target;
     [SerializeField] protected float stopDistance = 3f;
     [SerializeField] protected float attackDistance = 5f;
     protected float distanceToPlayer;
@@ -26,8 +26,14 @@ public abstract class Enemy : Entity
     public override void DoStart()
     {
         base.DoStart();
+        EventManager.Instance.onPlayerSpawn.AddListener(GetPlayer);
+        GetPlayer();
+    }
+
+    void GetPlayer()
+    {
         if (!target)
-            target = FindObjectOfType<ShipController>();
+            target = FindObjectOfType<PlayerController>();
     }
 
     public override void Death()
@@ -74,13 +80,10 @@ public abstract class Enemy : Entity
     public override void DoUpdate()
     {
         base.DoUpdate();
+        distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
+        Move();
+
         if (target)
-        {
-            distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
-            Move();
             Attacking();
-        }
-        else
-            Decelerate();
     }
 }

@@ -7,6 +7,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int PlayerDirection = 1;
 
+    [Header("player spawn")]
+    public Health PlayerLife;
+    public GameObject playerPrefab;
+    [SerializeField] float respawnDelay = 1f;
+
+    [Header("Move area")]
     [SerializeField] Color gizmoColor = Color.white;
     public Bounds moveBounds;
 
@@ -18,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerLife.Initialize();
         if (!Instance)
             Instance = this;
     }
@@ -25,6 +32,25 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.onPlayerFlip.AddListener(FlipPlayer);
+        EventManager.Instance.onPlayerDeath.AddListener(SpawnPlayer);
+    }
+
+    public void SpawnPlayer()
+    {
+        PlayerLife.CurrentHealth--;
+        EventManager.Instance.onPlayerDamaged.Invoke();
+
+        if (PlayerLife.CurrentHealth <= 0)
+            EventManager.Instance.onGameOver.Invoke();
+        else
+            StartCoroutine(Respawn(respawnDelay));
+    }
+
+    IEnumerator Respawn(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Instantiate(playerPrefab);
+        EventManager.Instance.onPlayerSpawn.Invoke();
     }
 
     public void FlipPlayer()
