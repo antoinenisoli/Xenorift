@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonObject_Mat
+  m_Name: M_torpedo_sniper
   m_Shader: {fileID: 4800000, guid: 41dbe15563ad28c41b9be1e22a22cdd5, type: 3}
   m_ShaderKeywords: L_F_SS_ON N_F_SS_ON _ALPHABASECUTOUT_ON _DYNAMICNOISYOUTLINE_ON
     _LIGHTAFFECTOUTLINECOLOR_ON _RIMLIGHTINLIGHT_ON _SELFLITHIGHCONTRAST_ON _TEXTUREPATTERNSTYLE_ON
@@ -115,14 +115,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBaseCutout: 1
-    - _Brightness: 0.51
+    - _Brightness: 0.582
     - _BumpScale: 1
     - _Compa: 8
     - _CustomLightDirectionFollowObjectRotation: 0
     - _CustomLightDirectionIntensity: 0
     - _Cutoff: 0.5
     - _Cutout: 0.683
-    - _Detail: 0.246
+    - _Detail: 0.308
     - _DetailNormalMapScale: 1
     - _DoubleSided: 0
     - _DstBlend: 0
@@ -235,7 +235,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularIntensity: 105.6
     - _SrcBlend: 1
-    - _Strength: 0.356
+    - _Strength: 1
     - _TexturePatternStyle: 1
     - _Transparent: 1
     - _UVSec: 0
@@ -263,6 +263,6 @@ Material:
     - _SelfShadowRealTimeShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 0.8255048, g: 0.4575472, b: 1, a: 1}
+    - _Tint: {r: 0.6037736, g: 0.111457415, b: 0, a: 1}
     - _XYZPosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
