@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6200190292159806162}
-  - component: {fileID: 6200190292159806163}
+  - component: {fileID: 8234955389129486754}
   - component: {fileID: 6200190292159806164}
   - component: {fileID: 6200190292159806165}
   m_Layer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6200190292159806163
+--- !u!114 &8234955389129486754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6200190292159806160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91b36966522a9a48bdd1b7ced5df9a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f1dac58fad1bb14da84d81f64621eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
@@ -52,13 +52,13 @@ MonoBehaviour:
     maxHealth: 15
   team: 1
   direction: 1
-  movingSpeed: 30
-  acceleration: 5
-  friction: 5
-  target: {fileID: 0}
   visual: {fileID: 6200190293124816044}
-  stopDistance: 10
-  attackDistance: 25
+  movingSpeed: 30
+  acceleration: 10
+  friction: 10
+  target: {fileID: 0}
+  stopDistance: 50
+  attackDistance: 50
   shooting:
     profilesToUse:
     - name: Regular

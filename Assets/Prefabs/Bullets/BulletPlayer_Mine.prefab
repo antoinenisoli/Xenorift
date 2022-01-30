@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99742934714652124}
+  - component: {fileID: 782822432454806590}
   - component: {fileID: 7824520903583380521}
   - component: {fileID: 8567096279586975427}
   - component: {fileID: 8562504412998382911}
@@ -28,13 +29,27 @@ Transform:
   m_GameObject: {fileID: 3696757966812072919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 67.58952, y: 5.69, z: 29.255104}
-  m_LocalScale: {x: 0.7744, y: 0.7744, z: 0.7744}
+  m_LocalScale: {x: 2.1585627, y: 2.1585627, z: 2.1585627}
   m_Children:
   - {fileID: 4684091818776875267}
   - {fileID: 2963138116340921132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782822432454806590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696757966812072919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45daf9071ce1949e1bd159e339b5fdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationAxis: {x: 0, y: 1, z: 1}
+  _rotationSpeed: 90
 --- !u!114 &7824520903583380521
 MonoBehaviour:
   m_ObjectHideFlags: 0

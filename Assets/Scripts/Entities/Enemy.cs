@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class Enemy : Entity
+public abstract class Enemy : Entity
 {
     [Header(nameof(Enemy))]
-    [SerializeField] ShipController target;
-    [SerializeField] float stopDistance = 3f;
-    [SerializeField] float attackDistance = 5f;
-    [SerializeField] Shooting shooting;
-    float distanceToPlayer;
-    Vector3 velocity;
-    bool up = true;
+    [SerializeField] protected ShipController target;
+    [SerializeField] protected float stopDistance = 3f;
+    [SerializeField] protected float attackDistance = 5f;
+    protected float distanceToPlayer;
+    protected Vector3 velocity;
+    protected bool up = true;
 
     private void OnDrawGizmosSelected()
     {
@@ -24,9 +23,9 @@ public class Enemy : Entity
         }
     }
 
-    private void Start()
+    public override void DoStart()
     {
-        shooting.Init();
+        base.DoStart();
         if (!target)
             target = FindObjectOfType<ShipController>();
     }
@@ -38,16 +37,16 @@ public class Enemy : Entity
         Feedbacks.FreezeFrame(0.3f, 0.2f);
     }
 
-    void Move()
+    Vector3 VerticalMove()
     {
         Vector3 vel;
         float offset = 10;
-        if (transform.position.z > gameBounds.size.z/2 - offset && up)
+        if (transform.position.z > gameBounds.size.z / 2 - offset && up)
         {
             rb.velocity = Vector3.zero;
             up = false;
         }
-        else if (transform.position.z < -gameBounds.size.z/2 + offset && !up)
+        else if (transform.position.z < -gameBounds.size.z / 2 + offset && !up)
         {
             rb.velocity = Vector3.zero;
             up = true;
@@ -55,22 +54,26 @@ public class Enemy : Entity
 
         if (up)
             vel = transform.right;
-        else 
+        else
             vel = -transform.right;
 
+        return vel;
+    }
+
+    public virtual void Move()
+    {
+        Vector3 vel = VerticalMove();
         if (distanceToPlayer > stopDistance)
-            vel += transform.forward;
+            vel += transform.forward * direction;
 
         Accelerate(vel.normalized * movingSpeed);
     }
 
-    void Attacking()
-    {
-        shooting.Update(distanceToPlayer < attackDistance);
-    }
+    public abstract void Attacking();
 
-    private void Update()
+    public override void DoUpdate()
     {
+        base.DoUpdate();
         if (target)
         {
             distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
@@ -78,9 +81,6 @@ public class Enemy : Entity
             Attacking();
         }
         else
-        {
-            shooting.Update(false);
             Decelerate();
-        }
     }
 }
