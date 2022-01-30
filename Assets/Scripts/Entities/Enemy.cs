@@ -80,13 +80,10 @@ public abstract class Enemy : Entity
     public override void DoUpdate()
     {
         base.DoUpdate();
+        distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
+        Move();
+
         if (target)
-        {
-            distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
-            Move();
             Attacking();
-        }
-        else
-            Decelerate();
     }
 }

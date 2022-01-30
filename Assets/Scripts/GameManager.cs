@@ -38,11 +38,12 @@ public class GameManager : MonoBehaviour
     public void SpawnPlayer()
     {
         PlayerLife.CurrentHealth--;
-        if (PlayerLife.CurrentHealth <= 0)
-            return;
-
-        StartCoroutine(Respawn(respawnDelay));
         EventManager.Instance.onPlayerDamaged.Invoke();
+
+        if (PlayerLife.CurrentHealth <= 0)
+            EventManager.Instance.onGameOver.Invoke();
+        else
+            StartCoroutine(Respawn(respawnDelay));
     }
 
     IEnumerator Respawn(float duration)
