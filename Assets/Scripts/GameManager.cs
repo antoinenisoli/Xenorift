@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int PlayerDirection = 1;
 
-    [Header("player spawn")]
+    [Header("Player spawn")]
     public Health PlayerLife;
     public GameObject playerPrefab;
     [SerializeField] float respawnDelay = 1f;
@@ -33,6 +33,15 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.onPlayerFlip.AddListener(FlipPlayer);
         EventManager.Instance.onPlayerDeath.AddListener(SpawnPlayer);
+    }
+
+    public int RandomDirection()
+    {
+        float random = Random.Range(0, 2);
+        if (random > 0.5f)
+            return 1;
+        else
+            return -1;
     }
 
     public void SpawnPlayer()

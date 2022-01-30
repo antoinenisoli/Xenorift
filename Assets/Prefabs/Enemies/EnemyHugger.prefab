@@ -138,10 +138,11 @@ MonoBehaviour:
   acceleration: 125
   friction: 6
   target: {fileID: 0}
-  stopDistance: 100
-  attackDistance: 100
+  stopDistance: 130
+  attackDistance: 130
   chargeDuration: 1.5
   attackRate: 5
+  damage: 1
 --- !u!54 &531133006347493909
 Rigidbody:
   m_ObjectHideFlags: 0

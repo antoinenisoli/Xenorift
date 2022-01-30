@@ -138,8 +138,8 @@ MonoBehaviour:
   acceleration: 10
   friction: 10
   target: {fileID: 0}
-  stopDistance: 50
-  attackDistance: 50
+  stopDistance: 130
+  attackDistance: 130
   shooting:
     profilesToUse:
     - name: Regular

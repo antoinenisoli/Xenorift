@@ -15,7 +15,7 @@ public class EnemyShooter : Enemy
 
     public override void Attacking()
     {
-        shooting.Update(distanceToPlayer < attackDistance);
+        shooting.Update(DistanceToPlayer() < attackDistance);
     }
 
     public override void DoUpdate()

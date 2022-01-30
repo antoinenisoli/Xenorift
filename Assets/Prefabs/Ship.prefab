@@ -56,7 +56,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525416003963675864}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 1797880308847378397}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1525416003963675867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   direction: 1
   visual: {fileID: 2766339801330521040}
   movingSpeed: 70
-  acceleration: 8
-  friction: 2
+  acceleration: 100
+  friction: 10
   shootingSpeed: 55
   shooting:
     profilesToUse: []
@@ -123,7 +123,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!65 &1525416003963675869
 BoxCollider:
@@ -133,10 +133,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525416003963675864}
   m_Material: {fileID: 13400000, guid: 48b12c9b9a4a0c5408438356ce3d6d4b, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.9, y: 2.17, z: 12.21}
+  m_Size: {x: 5.61, y: 3.65, z: 6.68}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1525416004319007029
 GameObject:

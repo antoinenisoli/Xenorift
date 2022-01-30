@@ -28,8 +28,8 @@ public class PlayerController : Entity
 
     void GetInputs()
     {
-        float xInput = Input.GetAxis("Horizontal");
-        float yInput = Input.GetAxis("Vertical");
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float yInput = Input.GetAxisRaw("Vertical");
         inputs = new Vector3(xInput, 0, yInput).normalized;
     }
 
@@ -64,6 +64,7 @@ public class PlayerController : Entity
         if (!hit)
         {
             Health.CurrentHealth -= value;
+            hit = true;
             Death();
         }
     }
@@ -79,7 +80,11 @@ public class PlayerController : Entity
         if (inputs.sqrMagnitude <= 0)
             Decelerate();
         else
+        {
+            vel = inputs * GetSpeed();
+            vel.y = rb.velocity.y;
             Accelerate(vel);
+        }
     }
 
     void ManageShooting()
@@ -110,10 +115,8 @@ public class PlayerController : Entity
         base.DoUpdate();
         RecoverHit();
         GetInputs();
-        vel = inputs * GetSpeed();
-        vel.y = rb.velocity.y;
-
         ManageShooting();
+
         if (Input.GetButtonDown("FlipShip"))
         {
             EventManager.Instance.onPlayerFlip.Invoke();

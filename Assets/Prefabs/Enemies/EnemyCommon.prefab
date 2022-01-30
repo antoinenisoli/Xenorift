@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 15
+    maxHealth: 1
   team: 1
   direction: 1
   visual: {fileID: 6200190293124816044}
@@ -57,8 +57,8 @@ MonoBehaviour:
   acceleration: 10
   friction: 10
   target: {fileID: 0}
-  stopDistance: 50
-  attackDistance: 50
+  stopDistance: 130
+  attackDistance: 130
   shooting:
     profilesToUse:
     - name: Regular

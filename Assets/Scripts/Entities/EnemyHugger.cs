@@ -34,7 +34,7 @@ public class EnemyHugger : Enemy
         if (ready)
             return;
 
-        if (distanceToPlayer > stopDistance)
+        if (DistanceToPlayer() > stopDistance)
             Accelerate((transform.forward * direction).normalized * movingSpeed);
         else if (!ready)
             ready = true;

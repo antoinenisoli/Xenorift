@@ -9,9 +9,9 @@ public abstract class Enemy : Entity
     [SerializeField] protected PlayerController target;
     [SerializeField] protected float stopDistance = 3f;
     [SerializeField] protected float attackDistance = 5f;
-    protected float distanceToPlayer;
     protected Vector3 velocity;
     protected bool up = true;
+    EnemyWave myWave;
 
     private void OnDrawGizmosSelected()
     {
@@ -21,6 +21,18 @@ public abstract class Enemy : Entity
             v.x = GameManager.Instance.moveBounds.max.x;
             Gizmos.DrawLine(transform.position, v - transform.forward * stopDistance);
         }
+    }
+
+    public void Init(EnemyWave wave, int direction)
+    {
+        myWave = wave;
+        this.direction = direction;
+        transform.rotation = Quaternion.Euler(Vector3.up * -90 * direction);
+    }
+
+    private void OnDestroy()
+    {
+        myWave.Remove(this);
     }
 
     public override void DoStart()
@@ -47,21 +59,22 @@ public abstract class Enemy : Entity
     {
         Vector3 vel;
         float offset = 10;
-        if (transform.position.z > gameBounds.size.z / 2 - offset && up)
+        if (transform.position.z > gameBounds.size.z / 2 - offset)
         {
             rb.velocity = Vector3.zero;
             up = false;
         }
-        else if (transform.position.z < -gameBounds.size.z / 2 + offset && !up)
+
+        if (transform.position.z < -gameBounds.size.z / 2 + offset)
         {
             rb.velocity = Vector3.zero;
             up = true;
         }
 
         if (up)
-            vel = transform.right;
+            vel = Vector3.forward;
         else
-            vel = -transform.right;
+            vel = Vector3.back;
 
         return vel;
     }
@@ -69,10 +82,21 @@ public abstract class Enemy : Entity
     public virtual void Move()
     {
         Vector3 vel = VerticalMove();
-        if (distanceToPlayer > stopDistance)
-            vel += transform.forward * direction;
+        if (DistanceToPlayer() > stopDistance)
+            vel += transform.forward;
 
         Accelerate(vel.normalized * movingSpeed);
+    }
+
+    public float DistanceToPlayer()
+    {
+        float distance;
+        if (direction < 0)
+            distance = transform.position.x - GameManager.Instance.moveBounds.max.x;
+        else
+            distance = transform.position.x - GameManager.Instance.moveBounds.min.x;
+
+        return Mathf.Abs(distance);
     }
 
     public abstract void Attacking();
@@ -80,9 +104,7 @@ public abstract class Enemy : Entity
     public override void DoUpdate()
     {
         base.DoUpdate();
-        distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
         Move();
-
         if (target)
             Attacking();
     }

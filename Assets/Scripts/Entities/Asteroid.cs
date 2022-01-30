@@ -24,12 +24,7 @@ public class Asteroid : MonoBehaviour
     {
         EventManager.Instance.onPlayerFlip.AddListener(UpdateState);
         speed = GameDevHelper.RandomInRange(randomSpeedRange);
-        float random = Random.Range(0,2);
-        if (random > 0.5f)
-            direction = 1;
-        else
-            direction = -1;
-
+        direction = GameManager.Instance.RandomDirection();
         UpdateState();
     }
 
