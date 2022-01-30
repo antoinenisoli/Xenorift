@@ -176,6 +176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDirection: 1
+  PlayerLife:
+    currentHealth: 0
+    maxHealth: 5
+  playerPrefab: {fileID: 1525416003963675864, guid: c7f8146c67f32c74381f5ad62ba847bd, type: 3}
+  respawnDelay: 1
   gizmoColor: {r: 0.0897603, g: 1, b: 0, a: 0.35686275}
   moveBounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -224,5 +229,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onPlayerFlip:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerSpawn:
     m_PersistentCalls:
       m_Calls: []

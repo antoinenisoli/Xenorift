@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class Health
 {
-    [SerializeField] float currentHealth;
-    [SerializeField] float maxHealth = 50;
+    [SerializeField] int currentHealth;
+    [SerializeField] int maxHealth = 50;
     public bool isDead => CurrentHealth <= 0;
 
-    public float CurrentHealth
+    public int CurrentHealth
     {
         get => currentHealth;
         set
@@ -24,7 +24,7 @@ public class Health
         }
     }
 
-    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
 
     public void Initialize()
     {

@@ -7,6 +7,9 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
     public UnityEvent onPlayerFlip = new UnityEvent();
+    public UnityEvent onPlayerDamaged = new UnityEvent();
+    public UnityEvent onPlayerDeath = new UnityEvent();
+    public UnityEvent onPlayerSpawn = new UnityEvent();
 
     private void Awake()
     {

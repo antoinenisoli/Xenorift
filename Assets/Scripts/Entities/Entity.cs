@@ -17,11 +17,6 @@ public abstract class Entity : MonoBehaviour
     protected Rigidbody rb;
     protected Collider myCollider;
 
-    [Header("Hit")]
-    [SerializeField] protected float hitDuration = 0.5f;
-    protected float hitTimer;
-    bool hit;
-
     protected Bounds gameBounds => GameManager.Instance.moveBounds;
 
     public void Awake()
@@ -59,36 +54,20 @@ public abstract class Entity : MonoBehaviour
         return myCollider.ClosestPointOnBounds(pos);
     }
 
-    protected void RecoverHit()
-    {
-        hitTimer += Time.deltaTime;
-        if (hitTimer > hitDuration)
-            hit = false;
-    }
-
     public virtual void TakeDamages(int value)
     {
-        if (!hit)
+        Health.CurrentHealth -= value;
+        if (visual)
         {
-            hitTimer = 0;
-            hit = true;
-            Health.CurrentHealth -= value;
-
-            if (visual)
-            {
-                visual.DOComplete();
-                visual.DOShakePosition(0.2f, 2, 90);
-            }
+            visual.DOComplete();
+            visual.DOShakePosition(0.2f, 2, 90);
         }
 
         if (Health.CurrentHealth <= 0)
             Death();
     }
 
-    public virtual void DoUpdate()
-    {
-        RecoverHit();
-    }
+    public virtual void DoUpdate() { }
 
     public void Update()
     {

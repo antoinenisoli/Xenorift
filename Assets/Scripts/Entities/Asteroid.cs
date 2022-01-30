@@ -35,7 +35,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ShipController player = other.GetComponent<ShipController>();
+        PlayerController player = other.GetComponent<PlayerController>();
         if (player)
         {
             player.TakeDamages(1);

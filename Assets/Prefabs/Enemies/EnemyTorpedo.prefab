@@ -144,7 +144,7 @@ MonoBehaviour:
   shooting:
     profilesToUse:
     - name: Regular
-      bullet: {fileID: 864542070921596931, guid: dfa2d369fd2b9ee4086c0114f73a2e65, type: 3}
+      bullet: {fileID: 864542070921596931, guid: a3dec72896363334897d29321d762d2a, type: 3}
       shootRate: 1
       shootPositions:
       - {fileID: 7670907244404575548}
