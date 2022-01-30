@@ -28,12 +28,20 @@ public class EnemyHugger : Enemy
             ready = true;
     }
 
+    void Charge()
+    {
+        attackTimer = 0;
+        rb.velocity = Vector3.zero;
+        inCharge = true;
+        visual.DOComplete();
+        transform.DOKill();
+        transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.right * direction), 0.25f);
+        SoundManager.Instance.PlayAudio("HuggerAttack");
+    }
+
     public override void Attacking()
     {
         attackTimer += Time.deltaTime;
-        Vector3 dir = target.transform.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(dir.normalized);
-
         if (inCharge)
         {
             if (attackTimer > chargeDuration)
@@ -41,15 +49,11 @@ public class EnemyHugger : Enemy
                 inCharge = false;
                 direction *= -1;
                 visual.DOComplete();
-                visual.DOShakePosition(attackRate, 1, 90).SetEase(Ease.InElastic);
+                visual.DOShakePosition(attackRate, 1, 90).SetEase(Ease.InBack).SetInverted();
             }
         }
         else if (attackTimer >= attackRate && ready)
-        {
-            attackTimer = 0;
-            rb.velocity = Vector3.zero;
-            inCharge = true;
-        }
+            Charge();
     }
 
     private void FixedUpdate()
