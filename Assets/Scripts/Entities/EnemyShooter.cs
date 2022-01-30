@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyShooter : Enemy
 {
+    [Header(nameof(EnemyShooter))]
     [SerializeField] Shooting shooting;
 
-    public override void Start()
+    public override void DoStart()
     {
-        base.Start();
+        base.DoStart();
         shooting.Init();
     }
 
@@ -17,9 +18,9 @@ public class EnemyShooter : Enemy
         shooting.Update(distanceToPlayer < attackDistance);
     }
 
-    public override void Update()
+    public override void DoUpdate()
     {
-        base.Update();
+        base.DoUpdate();
         if (!target)
             shooting.Update(false);
     }

@@ -8,18 +8,35 @@ public abstract class Entity : MonoBehaviour
     public Health Health;
     public Team team;
     public int direction = 1;
+
+    [Header("Movements")]
     [SerializeField] protected Transform visual;
     [SerializeField] protected float movingSpeed = 15f;
     [SerializeField] protected float acceleration = 10f;
     [SerializeField] protected float friction = 10f;
     protected Rigidbody rb;
+    protected Collider myCollider;
+
+    [Header("Hit")]
+    [SerializeField] protected float hitDuration = 0.5f;
+    protected float hitTimer;
+    bool hit;
+
     protected Bounds gameBounds => GameManager.Instance.moveBounds;
 
     public void Awake()
     {
+        myCollider = GetComponentInChildren<Collider>();
         rb = GetComponent<Rigidbody>();
         Health.Initialize();
     }
+
+    public void Start()
+    {
+        DoStart();
+    }
+
+    public virtual void DoStart() { }
 
     public virtual void Death()
     {
@@ -37,16 +54,44 @@ public abstract class Entity : MonoBehaviour
         rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, acceleration * Time.deltaTime);
     }
 
+    public Vector3 ClosestPointOnCollider(Vector3 pos)
+    {
+        return myCollider.ClosestPointOnBounds(pos);
+    }
+
+    protected void RecoverHit()
+    {
+        hitTimer += Time.deltaTime;
+        if (hitTimer > hitDuration)
+            hit = false;
+    }
+
     public virtual void TakeDamages(int value)
     {
-        Health.CurrentHealth -= value;
+        if (!hit)
+        {
+            hitTimer = 0;
+            hit = true;
+            Health.CurrentHealth -= value;
+
+            if (visual)
+            {
+                visual.DOComplete();
+                visual.DOShakePosition(0.2f, 2, 90);
+            }
+        }
+
         if (Health.CurrentHealth <= 0)
             Death();
+    }
 
-        if (visual)
-        {
-            visual.DOComplete();
-            visual.DOShakePosition(0.2f, 2, 90);
-        }
+    public virtual void DoUpdate()
+    {
+        RecoverHit();
+    }
+
+    public void Update()
+    {
+        DoUpdate();
     }
 }

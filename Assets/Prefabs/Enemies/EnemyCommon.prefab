@@ -50,7 +50,7 @@ MonoBehaviour:
   Health:
     currentHealth: 0
     maxHealth: 15
-  team: 0
+  team: 1
   direction: 1
   visual: {fileID: 6200190293124816044}
   movingSpeed: 30

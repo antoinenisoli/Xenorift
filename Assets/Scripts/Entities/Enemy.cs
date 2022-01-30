@@ -23,8 +23,9 @@ public abstract class Enemy : Entity
         }
     }
 
-    public virtual void Start()
+    public override void DoStart()
     {
+        base.DoStart();
         if (!target)
             target = FindObjectOfType<ShipController>();
     }
@@ -70,8 +71,9 @@ public abstract class Enemy : Entity
 
     public abstract void Attacking();
 
-    public virtual void Update()
+    public override void DoUpdate()
     {
+        base.DoUpdate();
         if (target)
         {
             distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;

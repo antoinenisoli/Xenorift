@@ -57,8 +57,9 @@ public class ShipController : Entity
         }
     }
 
-    private void Update()
+    public override void DoUpdate()
     {
+        base.DoUpdate();
         GetInputs();
         vel = inputs * GetSpeed();
         vel.y = rb.velocity.y;
@@ -71,7 +72,7 @@ public class ShipController : Entity
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Move();
         ClampPosition();

@@ -7,10 +7,11 @@ public class Asteroid : MonoBehaviour
     public int direction = 1;
     [SerializeField] Vector2 randomSpeedRange;
     float speed;
+    Rigidbody rb;
+
     [SerializeField] Material tangibleMat, intangibleMat;
     Collider myCollider;
     MeshRenderer meshRenderer;
-    Rigidbody rb;
 
     private void Awake()
     {
@@ -46,8 +47,11 @@ public class Asteroid : MonoBehaviour
     {
         bool checkDirection = GameManager.Instance.PlayerDirection == direction;
         myCollider.enabled = checkDirection;
-        for (int i = 0; i < meshRenderer.materials.Length; i++)
-            meshRenderer.materials[i] = checkDirection ? tangibleMat : intangibleMat;
+        Material[] newMaterials = meshRenderer.materials;
+        for (int i = 0; i < newMaterials.Length; i++)
+            newMaterials[i] = checkDirection ? tangibleMat : intangibleMat;
+
+        meshRenderer.materials = newMaterials;
     }
 
     private void FixedUpdate()

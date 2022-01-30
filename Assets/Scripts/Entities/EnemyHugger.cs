@@ -5,16 +5,28 @@ using UnityEngine;
 
 public class EnemyHugger : Enemy
 {
+    [Header(nameof(EnemyHugger))]
     [SerializeField] float chargeDuration = 0.4f;
     [SerializeField] float attackRate;
+    [SerializeField] int damage = 1;
     float attackTimer;
     bool ready;
     bool inCharge;
 
-    public override void Start()
+    public override void DoStart()
     {
-        base.Start();
+        base.DoStart();
         attackTimer = attackRate;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Entity entity = other.GetComponent<Entity>();
+        if (entity && entity.team != team)
+        {
+            VFXManager.Instance.PlayVFX("Damaged", entity.ClosestPointOnCollider(transform.position));
+            entity.TakeDamages(damage);
+        }
     }
 
     public override void Move()
@@ -56,11 +68,16 @@ public class EnemyHugger : Enemy
             Charge();
     }
 
-    private void FixedUpdate()
+    public override void DoUpdate()
+    {
+        base.DoUpdate();
+        if (ready && !inCharge)
+            Decelerate();
+    }
+
+    void FixedUpdate()
     {
         if (inCharge)
             rb.AddForce(Vector3.right * acceleration * direction, ForceMode.Acceleration);
-        else if (ready)
-            Decelerate();
     }
 }
