@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6200190292159806164}
   - component: {fileID: 6200190292159806165}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyCommon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,20 +49,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 10
+    maxHealth: 15
   team: 1
   direction: 1
-  movingSpeed: 15
-  acceleration: 10
-  friction: 10
+  movingSpeed: 30
+  acceleration: 5
+  friction: 5
   target: {fileID: 0}
+  visual: {fileID: 6200190293124816044}
   stopDistance: 10
   attackDistance: 25
   shooting:
     profilesToUse:
     - name: Regular
       bullet: {fileID: 864542070921596931, guid: 9cafbf7bbc119a84d86d0e4cf180bbb3, type: 3}
-      shootRate: 1
+      shootRate: 0.5
       shootPositions:
       - {fileID: 6200190292877938492}
       shootTimer: 0
@@ -89,8 +90,8 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200190292159806160}
-  m_Material: {fileID: 13400000, guid: 48b12c9b9a4a0c5408438356ce3d6d4b, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 8.89, y: 3.97, z: 11.62}

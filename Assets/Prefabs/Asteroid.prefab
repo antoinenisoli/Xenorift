@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596663264588898689}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.2588186, y: -0, z: -0, w: 0.965926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2596663265147666575}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
 --- !u!114 &2837571486957658225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45daf9071ce1949e1bd159e339b5fdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationAxis: {x: 0, y: 1, z: 0}
+  _rotationAxis: {x: 1, y: 0, z: 1}
   _rotationSpeed: 90
 --- !u!33 &2596663264588898694
 MeshFilter:
@@ -54,7 +54,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596663264588898689}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2596663264588898695
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 836666cc83f044749ac69dd7e9e93d49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,9 +122,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596663265147666569}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -92, y: 0, z: 23.8}
-  m_LocalScale: {x: 12.674153, y: 12.674153, z: 12.674153}
+  m_LocalScale: {x: 9.907639, y: 9.907639, z: 9.907639}
   m_Children:
   - {fileID: 2596663264588898693}
   m_Father: {fileID: 0}
@@ -142,14 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa46900a0d4997f499d3e3f794f7d6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health:
-    currentHealth: 0
-    maxHealth: 50
-  team: 1
   direction: 1
-  movingSpeed: 5
-  acceleration: 10
-  friction: 10
+  randomSpeedRange: {x: 0, y: 10}
+  tangibleMat: {fileID: 2100000, guid: 836666cc83f044749ac69dd7e9e93d49, type: 2}
+  intangibleMat: {fileID: 2100000, guid: 994dfd8b76abac645b40d88264b76e0b, type: 2}
 --- !u!54 &2596663265147666573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,7 +161,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &2596663265147666574
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -174,8 +170,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596663265147666569}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.68
   m_Center: {x: 0, y: 0, z: 0}

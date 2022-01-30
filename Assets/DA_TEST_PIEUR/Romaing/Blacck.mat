@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blacck
+  m_Shader: {fileID: 4800000, guid: 3dd7041edf8a537418ab7c1d51f82a75, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: fb813ffa61dc0ea44afdb52099e064ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThresholdMapRCellGShadow:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AO_LightInput: 0.343
+    - _AO_Threshold: 0.438
+    - _CellThreshold: 5
+    - _Debug: 0
+    - _DistancemaxFresnel: 20
+    - _DistanceminFresnel: 10
+    - _EmissiveIntensity: 0
+    - _Float0: 90
+    - _FresnelAmountMIN: 0
+    - _FresnelShadow: 0
+    - _HighlightAnimation: 0.115
+    - _Hue: 0
+    - _HueSpec: 0.33
+    - _IntensityFresnel: 0
+    - _LightingColorweight: 0.613
+    - _NormalScale: 1
+    - _Saturation: 0
+    - _SaturationSpec: 0.19
+    - _ShadowAmbient: 0.909
+    - _Shadow_Threshold: 0.447
+    - _SpecPow: 71.1
+    - _Value: 0.05
+    - _ValueSpec: 0.47
+    - __dirty: 0
+    m_Colors:
+    - _FresnelL: {r: 0.9078603, g: 0, b: 1, a: 0}
+    - _FresnelR: {r: 0.23201916, g: 1, b: 0, a: 0}
+    - _HighlightColor: {r: 1.04509, g: 7.171482, b: 8.324685, a: 1}
+    - _ShadowCOlor: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

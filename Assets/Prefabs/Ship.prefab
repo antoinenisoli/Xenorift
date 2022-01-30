@@ -85,6 +85,7 @@ MonoBehaviour:
     maxHealth: 50
   team: 0
   direction: 1
+  visual: {fileID: 2943372228800720111}
   movingSpeed: 70
   acceleration: 8
   friction: 2
@@ -107,11 +108,6 @@ MonoBehaviour:
       - {fileID: 1797880308847378397}
       shootTimer: 0
       Direction: -1
-  gizmoColor: {r: 0, g: 1, b: 0.11156154, a: 0.6039216}
-  moveArea: {x: 50, y: 200}
-  moveBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 25, y: 0, z: 100}
 --- !u!54 &1525416003963675868
 Rigidbody:
   m_ObjectHideFlags: 0

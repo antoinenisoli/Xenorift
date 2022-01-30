@@ -10,39 +10,13 @@ public class ShipController : Entity
     [SerializeField] PlayerShooting shooting;
     Vector3 inputs;
     Vector3 vel;
-
-    [SerializeField] Color gizmoColor = Color.white;
-    [SerializeField] Vector2 moveArea;
-    Vector3 basePosition;
-    [HideInInspector] public Bounds moveBounds;
     bool isShooting;
 
-    private void OnDrawGizmos()
-    {
-        if (!Application.isPlaying)
-        {
-            moveBounds.size = new Vector3(moveArea.x, 0, moveArea.y);
-            moveBounds.center = transform.position;
-        }
-
-        Gizmos.color = gizmoColor;
-        Gizmos.DrawCube(moveBounds.center, moveBounds.size);
-    }
+    Vector3 futurePos => rb.velocity * GetSpeed() * Time.deltaTime;
 
     private void Start()
     {
         shooting.Init();
-        basePosition = transform.position;
-        moveBounds.size = new Vector3(moveArea.x, 0, moveArea.y);
-        moveBounds.center = basePosition;
-    }
-
-    Rect MoveRect()
-    {
-        if (Application.isPlaying)
-            return new Rect(basePosition, moveArea);
-        else
-            return new Rect(transform.position, moveArea);
     }
 
     void GetInputs()
@@ -76,10 +50,10 @@ public class ShipController : Entity
 
     void ClampPosition()
     {
-        if (!moveBounds.Contains(transform.position))
+        if (!gameBounds.Contains(transform.position))
         {
-            print("out");
-            rb.velocity *= -1;
+            transform.position = GameDevHelper.ClampVector3(transform.position, gameBounds.size/2);
+            //rb.velocity = Vector3.zero;
         }
     }
 
