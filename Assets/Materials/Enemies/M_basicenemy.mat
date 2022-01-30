@@ -64,10 +64,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 0.577
+    - _Brightness: 0.264
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Detail: 0.394
+    - _Detail: 0.209
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Float0: 0.08
@@ -85,7 +85,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularIntensity: 15
     - _SrcBlend: 1
-    - _Strength: 0.537
+    - _Strength: 0.483
     - _Transparent: 1
     - _UVSec: 0
     - _ZWrite: 1
