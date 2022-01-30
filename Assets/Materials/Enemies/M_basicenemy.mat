@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BasicEnnemy
+  m_Name: M_basicenemy
   m_Shader: {fileID: 4800000, guid: 41dbe15563ad28c41b9be1e22a22cdd5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
