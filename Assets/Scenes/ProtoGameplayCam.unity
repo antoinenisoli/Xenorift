@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &314314565
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -17077,6 +17077,7 @@ MonoBehaviour:
     maxHealth: 50
   team: 0
   direction: 1
+  visual: {fileID: 0}
   movingSpeed: 70
   acceleration: 8
   friction: 2
@@ -17099,11 +17100,6 @@ MonoBehaviour:
       - {fileID: 6053184580442097748}
       shootTimer: 0
       Direction: -1
-  gizmoColor: {r: 0, g: 1, b: 0.11156154, a: 0}
-  moveArea: {x: 50, y: 200}
-  moveBounds:
-    m_Center: {x: -1.6000004, y: 5.95, z: 0.26096562}
-    m_Extent: {x: 25, y: 0, z: 100}
 --- !u!4 &6474272002535887699
 Transform:
   m_ObjectHideFlags: 0
