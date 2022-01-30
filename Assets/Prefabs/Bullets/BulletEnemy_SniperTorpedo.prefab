@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166012233274478088}
-  - component: {fileID: 7521463640445124040}
+  - component: {fileID: 2137772916547138609}
   - component: {fileID: 5644854261534586135}
   - component: {fileID: 5649446615572803307}
   m_Layer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7521463640445124040
+--- !u!114 &2137772916547138609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,14 +43,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 864542070921596931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f812a0c393aca143ab1d49e808ea93f, type: 3}
+  m_Script: {fileID: 11500000, guid: 62fe6e131bb1f5a44a0b17b5764c5ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  speed: 100
+  speed: 50
   damage: 1
-  startSpeed: 5
-  acceleration: 0.1
+  startSpeed: 2
+  acceleration: 1
+  rotationSpeed: 15
 --- !u!54 &5644854261534586135
 Rigidbody:
   m_ObjectHideFlags: 0
