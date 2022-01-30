@@ -13,7 +13,10 @@ public class Shooting
     public virtual void Init()
     {
         foreach (var item in profilesToUse)
+        {
             savedProfiles.Add(item.name, item);
+            item.shootTimer = item.shootRate;
+        }
     }
 
     public void SetProfile(string profileName)

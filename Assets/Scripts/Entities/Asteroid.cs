@@ -2,23 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : Entity
+public class Asteroid : MonoBehaviour
 {
+    public int direction = 1;
+    [SerializeField] Vector2 randomSpeedRange;
+    float speed;
+    [SerializeField] Material tangibleMat, intangibleMat;
     Collider myCollider;
+    MeshRenderer meshRenderer;
+    Rigidbody rb;
 
-    private void Start()
+    private void Awake()
     {
-        direction = Random.Range(0, 2);
+        rb = GetComponent<Rigidbody>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         myCollider = GetComponent<Collider>();
     }
 
-    private void Update()
+    private void Start()
+    {
+        EventManager.Instance.onPlayerFlip.AddListener(UpdateState);
+        speed = GameDevHelper.RandomInRange(randomSpeedRange);
+        float random = Random.Range(0,2);
+        if (random > 0.5f)
+            direction = 1;
+        else
+            direction = -1;
+
+        UpdateState();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ShipController player = other.GetComponent<ShipController>();
+        if (player)
+        {
+            player.TakeDamages(1);
+            Destroy(gameObject);
+        }
+    }
+
+    private void UpdateState()
     {
         myCollider.enabled = GameManager.Instance.PlayerDirection == direction;
+        meshRenderer.material = myCollider.enabled ? tangibleMat : intangibleMat;
     }
 
     private void FixedUpdate()
     {
-        Accelerate(transform.right * movingSpeed);
+        rb.velocity = transform.right * speed * direction;
     }
 }

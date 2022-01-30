@@ -16,6 +16,20 @@ public class GameDevHelper : MonoBehaviour
         return basePos + random;
     }
 
+    public static float RandomInRange(Vector2 range)
+    {
+        return Random.Range(range.x, range.y + 1);
+    }
+
+    public static Vector3 ClampVector3(Vector3 vector, Vector3 range)
+    {
+        Vector3 clampedPos = vector;
+        clampedPos.x = Mathf.Clamp(clampedPos.x, -range.x, range.x);
+        clampedPos.y = Mathf.Clamp(clampedPos.y, -range.y, range.y);
+        clampedPos.z = Mathf.Clamp(clampedPos.z, -range.z, range.z);
+        return clampedPos;
+    }
+
     public static Vector2Int ToVector2Int(Vector2 vector)
     {
         return new Vector2Int(Mathf.RoundToInt(vector.x), Mathf.RoundToInt(vector.y));
@@ -59,13 +73,5 @@ public class GameDevHelper : MonoBehaviour
         System.Array array = System.Enum.GetValues(typeof(T));
         T randomBiome = (T)array.GetValue(Random.Range(0, array.Length));
         return randomBiome;
-    }
-
-    public static void DrawRect(Rect rect)
-    {
-        Gizmos.DrawLine(rect.min, new Vector3(rect.min.x, rect.position.y, rect.max.y));
-        Gizmos.DrawLine(new Vector3(rect.min.x, rect.position.y, rect.max.y), rect.max);
-        Gizmos.DrawLine(rect.max, new Vector3(rect.max.x, rect.position.y, rect.min.y));
-        Gizmos.DrawLine(rect.min, new Vector3(rect.max.x, rect.position.y, rect.min.y));
     }
 }

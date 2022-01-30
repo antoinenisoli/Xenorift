@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -10,13 +11,15 @@ public class Enemy : Entity
     [SerializeField] float attackDistance = 5f;
     [SerializeField] Shooting shooting;
     float distanceToPlayer;
+    Vector3 velocity;
+    bool up = true;
 
     private void OnDrawGizmosSelected()
     {
-        if (target)
+        if (target && GameManager.Instance)
         {
             Vector3 v = transform.position;
-            v.x = target.moveBounds.max.x;
+            v.x = GameManager.Instance.moveBounds.max.x;
             Gizmos.DrawLine(transform.position, v - transform.forward * stopDistance);
         }
     }
@@ -37,10 +40,28 @@ public class Enemy : Entity
 
     void Move()
     {
+        Vector3 vel;
+        float offset = 10;
+        if (transform.position.z > gameBounds.size.z/2 - offset && up)
+        {
+            rb.velocity = Vector3.zero;
+            up = false;
+        }
+        else if (transform.position.z < -gameBounds.size.z/2 + offset && !up)
+        {
+            rb.velocity = Vector3.zero;
+            up = true;
+        }
+
+        if (up)
+            vel = transform.right;
+        else 
+            vel = -transform.right;
+
         if (distanceToPlayer > stopDistance)
-            Accelerate(transform.forward * movingSpeed);
-        else
-            Decelerate();
+            vel += transform.forward;
+
+        Accelerate(vel.normalized * movingSpeed);
     }
 
     void Attacking()
@@ -52,7 +73,7 @@ public class Enemy : Entity
     {
         if (target)
         {
-            distanceToPlayer = transform.position.x - target.moveBounds.max.x;
+            distanceToPlayer = transform.position.x - GameManager.Instance.moveBounds.max.x;
             Move();
             Attacking();
         }

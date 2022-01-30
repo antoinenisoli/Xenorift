@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,12 @@ public abstract class Entity : MonoBehaviour
     public Health Health;
     public Team team;
     public int direction = 1;
+    [SerializeField] protected Transform visual;
     [SerializeField] protected float movingSpeed = 15f;
     [SerializeField] protected float acceleration = 10f;
     [SerializeField] protected float friction = 10f;
     protected Rigidbody rb;
+    protected Bounds gameBounds => GameManager.Instance.moveBounds;
 
     public void Awake()
     {
@@ -20,6 +23,7 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Death()
     {
+        VFXManager.Instance.PlayVFX("Explosion", transform.position);
         Destroy(gameObject);
     }
 
@@ -38,5 +42,11 @@ public abstract class Entity : MonoBehaviour
         Health.CurrentHealth -= value;
         if (Health.CurrentHealth <= 0)
             Death();
+
+        if (visual)
+        {
+            visual.DOComplete();
+            visual.DOShakePosition(0.2f, 2, 90);
+        }
     }
 }
