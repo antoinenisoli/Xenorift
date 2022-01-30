@@ -15,7 +15,7 @@ MonoBehaviour:
   settings:
   - {fileID: 7049228415198014920}
   - {fileID: 3533343500180552208}
-  - {fileID: 6663242528382065745}
+  - {fileID: 4639577635022911823}
 --- !u!114 &3533343500180552208
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -69,28 +69,28 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 52
+    value: 12
   tint:
     overrideState: 0
-    value: 24
+    value: -100
   colorFilter:
-    overrideState: 1
+    overrideState: 0
     value: {r: 1, g: 0.63826346, b: 0.2396226, a: 1}
   hueShift:
     overrideState: 0
     value: 76
   saturation:
     overrideState: 1
-    value: 40
+    value: 100
   brightness:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 1
+    overrideState: 0
     value: 0
   contrast:
     overrideState: 1
-    value: 42
+    value: 40
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1327,7 +1327,7 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &6663242528382065745
+--- !u!114 &4639577635022911823
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1336,46 +1336,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
-  m_Name: AmbientOcclusion
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
-  mode:
+  spectralLut:
     overrideState: 0
-    value: 1
+    value: {fileID: 0}
+    defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.54
-  color:
-    overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
-  ambientOnly:
-    overrideState: 0
-    value: 1
-  noiseFilterTolerance:
+    value: 0.142
+  fastMode:
     overrideState: 0
     value: 0
-  blurTolerance:
-    overrideState: 0
-    value: -4.6
-  upsampleTolerance:
-    overrideState: 0
-    value: -12
-  thicknessModifier:
-    overrideState: 0
-    value: 1
-  directLightingStrength:
-    overrideState: 0
-    value: 0
-  radius:
-    overrideState: 0
-    value: 0.25
-  quality:
-    overrideState: 0
-    value: 2
 --- !u!114 &7049228415198014920
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1388,19 +1365,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 6.3
+    value: 4.65
   threshold:
     overrideState: 0
     value: 1
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.821
   clamp:
     overrideState: 0
     value: 65472
@@ -1411,8 +1388,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   color:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: {r: 0, g: 0.0027356148, b: 1, a: 1}
   fastMode:
     overrideState: 0
     value: 0
