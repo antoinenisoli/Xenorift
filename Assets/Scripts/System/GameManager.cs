@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int PlayerDirection = 1;
+
+    public PostProcessVolume volume;
+    ColorGrading colorGrading;
+    float startTemperature;
 
     [Header("Player spawn")]
     public Health PlayerLife;
@@ -31,8 +38,28 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (!volume)
+            volume = FindObjectOfType<PostProcessVolume>();
+
+        if (volume.profile.TryGetSettings(out ColorGrading colorGrading))
+        {
+            this.colorGrading = colorGrading;
+            startTemperature = colorGrading.temperature.value;
+        }
+
         EventManager.Instance.onPlayerFlip.AddListener(FlipPlayer);
         EventManager.Instance.onPlayerDeath.AddListener(SpawnPlayer);
+        EventManager.Instance.onPlayerFlip.AddListener(ColorEffect);
+    }
+
+    void ColorEffect()
+    {
+        DOVirtual.Float(startTemperature, 100, 0.1f, Set).SetUpdate(true).SetLoops(2, LoopType.Yoyo);
+    }
+
+    void Set(float f)
+    {
+        colorGrading.temperature.value = f;
     }
 
     public int RandomDirection()

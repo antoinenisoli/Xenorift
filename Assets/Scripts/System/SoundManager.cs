@@ -47,7 +47,6 @@ public class SoundManager : MonoBehaviour
     [ContextMenu(nameof(Convert))]
     public void Convert()
     {
-        sounds.Clear();
         foreach (var item in clips)
         {
             Sound newSound = new Sound(item, item.name);

@@ -31,13 +31,17 @@ public class EnemyHugger : Enemy
 
     public override void Move()
     {
-        if (ready)
-            return;
-
+        Vector3 vel = VerticalMove();
         if (DistanceToPlayer() > stopDistance)
-            Accelerate((Vector3.left * direction).normalized * movingSpeed);
+        {
+            if (!ready)
+                vel += Vector3.left * direction;
+        }
         else if (!ready)
             ready = true;
+
+        if (!inCharge)
+            Accelerate(vel.normalized * movingSpeed);
     }
 
     void Charge()

@@ -58,7 +58,7 @@ public abstract class Enemy : Entity
         Feedbacks.FreezeFrame(0.3f, 0.2f);
     }
 
-    Vector3 VerticalMove()
+    protected Vector3 VerticalMove()
     {
         Vector3 vel;
         float offset = 5;
