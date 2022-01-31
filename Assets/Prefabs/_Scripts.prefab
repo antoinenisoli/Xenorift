@@ -342,6 +342,9 @@ MonoBehaviour:
   onGameOver:
     m_PersistentCalls:
       m_Calls: []
+  onAreaCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8056669301102164628
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,27 +394,32 @@ MonoBehaviour:
   leftSpawn: {fileID: 5710818187467084628}
   rightSpawn: {fileID: 363665566355408481}
   waves:
-  - order: 1
-    delay: 1
+  - delay: 1
+    enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 6200190292159806160, guid: 31a31136e596d7945adc721564681cbe, type: 3}
-  - order: 2
-    delay: 2
+  - delay: 2
+    enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 252749453561906304, guid: 0314210f740c03d40a5c04aed499c1cd, type: 3}
-  - order: 1
-    delay: 2
+  - delay: 2
+    enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 1354979984528238402, guid: 71cbec674dbc4834a9d546a4ac9bea03, type: 3}
-  - order: 1
-    delay: 2
+  - delay: 2
+    enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 252749453561906304, guid: 0314210f740c03d40a5c04aed499c1cd, type: 3}
+  generateAsteroids: 1
+  asteroidParent: {fileID: 0}
+  asteroidPrefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+  maxGeneratedAsteroids: 50
+  randomGenerationDelay: {x: 0, y: 10}

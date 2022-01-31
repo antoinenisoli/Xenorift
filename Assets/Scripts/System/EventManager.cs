@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent onPlayerDeath = new UnityEvent();
     public UnityEvent onPlayerSpawn = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
+    public UnityEvent onAreaCompleted = new UnityEvent();
 
     private void Awake()
     {

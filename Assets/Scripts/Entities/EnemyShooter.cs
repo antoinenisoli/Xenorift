@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooter : Enemy
 {
     [Header(nameof(EnemyShooter))]
-    [SerializeField] Shooting shooting;
+    [SerializeField] EnemyShooting shooting;
 
     public override void DoStart()
     {

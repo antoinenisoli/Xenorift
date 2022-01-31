@@ -75,8 +75,9 @@ public class EnemyHugger : Enemy
             Decelerate();
     }
 
-    void FixedUpdate()
+    public override void DoFixedUpdate()
     {
+        base.DoFixedUpdate();
         if (inCharge)
             rb.AddForce(Vector3.right * acceleration * direction, ForceMode.Acceleration);
     }

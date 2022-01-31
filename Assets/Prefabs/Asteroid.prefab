@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   randomSpeedRange: {x: 0, y: 10}
-  tangibleMat: {fileID: 2100000, guid: 836666cc83f044749ac69dd7e9e93d49, type: 2}
-  intangibleMat: {fileID: 2100000, guid: 994dfd8b76abac645b40d88264b76e0b, type: 2}
+  tangibleMat: {fileID: 2100000, guid: 61063225866a21740821862d743fd893, type: 2}
+  intangibleMat: {fileID: 2100000, guid: 147f48a3a8f1eb447ab4d9abc1bce7d0, type: 2}
 --- !u!54 &2596663265147666573
 Rigidbody:
   m_ObjectHideFlags: 0

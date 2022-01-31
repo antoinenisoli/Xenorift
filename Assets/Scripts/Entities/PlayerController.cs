@@ -15,7 +15,6 @@ public class PlayerController : Entity
     [Header("Hit")]
     [SerializeField] protected float hitDuration = 0.5f;
     protected float hitTimer;
-    bool hit;
 
     Vector3 futurePos => rb.velocity * GetSpeed() * Time.deltaTime;
 

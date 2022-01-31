@@ -13,6 +13,8 @@ public abstract class Enemy : Entity
     protected bool up = true;
     EnemyWave myWave;
 
+    public float dist;
+
     private void OnDrawGizmosSelected()
     {
         if (target && GameManager.Instance)
@@ -105,6 +107,7 @@ public abstract class Enemy : Entity
     {
         base.DoUpdate();
         Move();
+        dist = DistanceToPlayer();
         if (target)
             Attacking();
     }

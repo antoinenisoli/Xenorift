@@ -16,6 +16,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float friction = 10f;
     protected Rigidbody rb;
     protected Collider myCollider;
+    protected bool hit;
 
     protected Bounds gameBounds => GameManager.Instance.moveBounds;
 
@@ -56,6 +57,10 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamages(int value)
     {
+        if (hit)
+            return;
+
+        hit = true;
         Health.CurrentHealth -= value;
         if (visual)
         {
@@ -68,9 +73,15 @@ public abstract class Entity : MonoBehaviour
     }
 
     public virtual void DoUpdate() { }
+    public virtual void DoFixedUpdate() { hit = false; }
 
     public void Update()
     {
         DoUpdate();
+    }
+
+    public void FixedUpdate()
+    {
+        DoFixedUpdate();
     }
 }

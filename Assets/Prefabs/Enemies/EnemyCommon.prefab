@@ -52,7 +52,7 @@ MonoBehaviour:
     maxHealth: 1
   team: 1
   direction: 1
-  visual: {fileID: 0}
+  visual: {fileID: 8829602035875494446}
   movingSpeed: 30
   acceleration: 10
   friction: 10
@@ -60,13 +60,13 @@ MonoBehaviour:
   stopDistance: 130
   attackDistance: 130
   shooting:
-    profilesToUse:
-    - name: Regular
+    profile:
+      name: Regular
       bullet: {fileID: 864542070921596931, guid: 9cafbf7bbc119a84d86d0e4cf180bbb3, type: 3}
-      shootRate: 0.5
       shootPositions:
       - {fileID: 6200190292877938492}
       shootTimer: 0
+    randomShootRateRange: {x: 0.5, y: 1}
 --- !u!54 &6200190292159806164
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200190292877938493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.73}
+  m_LocalPosition: {x: 0, y: 0, z: 5.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6200190292159806162}

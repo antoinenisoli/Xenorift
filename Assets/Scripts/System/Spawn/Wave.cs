@@ -10,13 +10,13 @@ public struct WaveProfile
 }
 
 [System.Serializable]
-public class EnemyWave
+public class Wave
 {
-    public int order = 1;
     public float delay = 2f;
+    public bool enableAsteroids = true;
     public bool Done;
     public WaveProfile[] waveProfiles;
-    List<Enemy> enemies = new List<Enemy>();
+    protected List<int> directions = new List<int>();
 
     Vector3 RandomPos()
     {
@@ -25,29 +25,23 @@ public class EnemyWave
         return Vector3.forward * randomZ;
     }
 
-    public List<Enemy> Spawn(Vector3 leftPos, Vector3 rightPos, Transform parent = null)
+    public virtual List<GameObject> Spawn(Vector3 leftPos, Vector3 rightPos, Transform parent = null)
     {
+        List<GameObject> list = new List<GameObject>();
         foreach (var item in waveProfiles)
             for (int i = 0; i < item.count; i++)
             {
                 int direction = GameManager.Instance.RandomDirection();
-                Enemy enemy = Object.Instantiate(item.enemyPrefab, parent).GetComponent<Enemy>();
+                directions.Add(direction);
+                GameObject spawnedEntity = Object.Instantiate(item.enemyPrefab, parent);
                 if (direction < 0)
-                    enemy.transform.position = RandomPos() + leftPos;
+                    spawnedEntity.transform.position = RandomPos() + leftPos;
                 else
-                    enemy.transform.position = RandomPos() + rightPos;
+                    spawnedEntity.transform.position = RandomPos() + rightPos;
 
-                enemy.Init(this, direction);
-                enemies.Add(enemy);
+                list.Add(spawnedEntity);
             }
 
-        return enemies;
-    }
-
-    public void Remove(Enemy enemy)
-    {
-        enemies.Remove(enemy);
-        if (enemies.Count <= 0)
-            Done = true;
+        return list;
     }
 }
