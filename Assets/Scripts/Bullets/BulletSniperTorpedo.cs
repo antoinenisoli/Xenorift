@@ -16,8 +16,9 @@ public class BulletSniperTorpedo : BulletAccelerating
         transform.rotation = Quaternion.LookRotation(direction.normalized);
     }
 
-    public override void Update()
+    public override void DoUpdate()
     {
+        base.DoUpdate();
         if (!ship)
             return;
 

@@ -17,9 +17,20 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int maxGeneratedAsteroids = 50;
     [SerializeField] Vector2 randomGenerationDelay;
 
+    float generationDelay;
+    float timer;
+
     private void Start()
     {
+        generationDelay = GameDevHelper.RandomInRange(randomGenerationDelay);
         Spawn();
+    }
+
+    public Vector3 RandomPos()
+    {
+        Vector3 range = GameManager.Instance.moveBounds.extents;
+        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z, range.z));
+        return Vector3.forward * randomZ;
     }
 
     void Spawn()
@@ -46,12 +57,31 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    void SpawnAsteroid()
+    {
+        generationDelay = GameDevHelper.RandomInRange(randomGenerationDelay);
+        GameObject newAsteroid = Instantiate(asteroidPrefab, asteroidParent);
+        Asteroid asteroid = newAsteroid.GetComponent<Asteroid>();
+        asteroid.direction = GameManager.Instance.RandomDirection();
+        if (asteroid.direction < 0)
+            newAsteroid.transform.position = RandomPos() + leftSpawn.position;
+        else
+            newAsteroid.transform.position = RandomPos() + rightSpawn.position;
+    }
+
     private void Update()
     {
         if (index < waves.Length)
         {
             if (waves[index].Done || Input.GetKeyDown(KeyCode.O))
                 NextWave();
+        }
+
+        timer += Time.deltaTime;
+        if (timer > generationDelay)
+        {
+            timer = 0;
+            SpawnAsteroid();
         }
     }
 }
