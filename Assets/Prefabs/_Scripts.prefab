@@ -280,6 +280,7 @@ Transform:
   - {fileID: 6270613776132030040}
   - {fileID: 6270613776732804156}
   - {fileID: 3314305544372085100}
+  - {fileID: 319583921904022671}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -327,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDirection: 1
+  volume: {fileID: 0}
   PlayerLife:
     currentHealth: 0
     maxHealth: 10
@@ -397,6 +399,81 @@ MonoBehaviour:
   onAreaCompleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &7035198658097118903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319583921904022671}
+  - component: {fileID: 5480667421783079307}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &319583921904022671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035198658097118903}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6270613776821451311}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5480667421783079307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035198658097118903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff967348d8bb14db8637f2c4414679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Currency: 50
+  qualityColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.036265016, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.6272721, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.7327647, a: 1}
+  - {r: 1, g: 0.5893744, b: 0, a: 1}
+  baseMoneyCost: 5
+  statData:
+  - stat: 0
+    statSprite: {fileID: 6933587369445508384, guid: 01325a256d7b3a34c8e216ccad1e8e2e, type: 3}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
+  - stat: 1
+    statSprite: {fileID: 2932051303476988985, guid: 01325a256d7b3a34c8e216ccad1e8e2e, type: 3}
+    randomQuality:
+    - minValue: 0
+      maxValue: 0
+      probability: 0
+    randomValue: []
+    randomCost: []
+  - stat: 2
+    statSprite: {fileID: -3971199900379211355, guid: 86f1c56d58f54be498235c458b83bf6f, type: 3}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
+  - stat: 3
+    statSprite: {fileID: 1428173715066152119, guid: 86f1c56d58f54be498235c458b83bf6f, type: 3}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
 --- !u!1 &8056669301102164628
 GameObject:
   m_ObjectHideFlags: 0

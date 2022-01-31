@@ -44,14 +44,12 @@ public class Asteroid : MonoBehaviour
         bool checkDirection = GameManager.Instance.PlayerDirection == direction;
         myCollider.enabled = checkDirection;
         Material[] newMaterials = meshRenderer.materials;
-        for (int i = 0; i < newMaterials.Length; i++)
-            newMaterials[i] = checkDirection ? tangibleMat : intangibleMat;
-
+        newMaterials[0] = checkDirection ? tangibleMat : intangibleMat;
         meshRenderer.materials = newMaterials;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.right * speed * direction;
+        rb.velocity = Vector3.left * speed * direction;
     }
 }

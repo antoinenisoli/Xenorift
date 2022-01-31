@@ -109,6 +109,8 @@ MonoBehaviour:
       shootTimer: 0
       shootRate: 0.5
       Direction: -1
+  shipRotationLimits: {x: 30, y: 30, z: 30}
+  rotateSpeed: 10
   hitDuration: 2
 --- !u!54 &1525416003963675868
 Rigidbody:

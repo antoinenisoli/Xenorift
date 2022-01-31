@@ -12,4 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21cd69e9c3750a4db3c5cb164513845, type: 3}
   m_Name: StatLibrary
   m_EditorClassIdentifier: 
-  statData: []
+  qualityColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.036265016, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.6272721, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.7327647, a: 1}
+  - {r: 1, g: 0.5893744, b: 0, a: 1}
+  statData:
+  - stat: 0
+    statSprite: {fileID: 0}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
+  - stat: 1
+    statSprite: {fileID: 0}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
+  - stat: 2
+    statSprite: {fileID: 0}
+    randomQuality: []
+    randomValue: []
+    randomCost: []
+  - stat: 3
+    statSprite: {fileID: 0}
+    randomQuality: []
+    randomValue: []
+    randomCost: []

@@ -12,7 +12,10 @@ public class PlayerController : Entity
     Vector3 inputs;
     Vector3 vel;
     bool isShooting;
-    [SerializeField] Vector3 shipRotation;
+
+    [Header("Rotation")]
+    [SerializeField] Vector3 shipRotationLimits;
+    [SerializeField] float rotateSpeed = 10f;
 
     [Header("Hit")]
     [SerializeField] protected float hitDuration = 0.5f;
@@ -84,6 +87,16 @@ public class PlayerController : Entity
         base.Death();
     }
 
+    void RotateShip()
+    {
+        Vector3 shipRotation = new Vector3();
+        shipRotation.z = inputs.z * 90;
+        shipRotation.x = inputs.x * 90;
+        shipRotation = GameDevHelper.ClampVector3(shipRotation, shipRotationLimits);
+        Quaternion rot = Quaternion.Euler(shipRotation);
+        shipPivot.localRotation = Quaternion.Slerp(shipPivot.localRotation, rot, rotateSpeed * Time.deltaTime);
+    }
+
     void Move()
     {
         if (inputs.sqrMagnitude <= 0)
@@ -94,12 +107,6 @@ public class PlayerController : Entity
             vel.y = rb.velocity.y;
             Accelerate(vel);
         }
-
-        shipRotation.z = inputs.z * -90;
-        shipRotation.x = inputs.x * 90;
-        shipRotation = GameDevHelper.ClampVector3(shipRotation, Vector3.one * 15);
-        Quaternion rot = Quaternion.Euler(shipRotation);
-        shipPivot.localRotation = Quaternion.Slerp(shipPivot.localRotation, rot, 10 * Time.deltaTime);
     }
 
     void ManageShooting()
@@ -123,19 +130,35 @@ public class PlayerController : Entity
             transform.position = GameDevHelper.ClampVector3(transform.position, gameBounds.size/2);
     }
 
+    void Flip()
+    {
+        shooting.Update(false);
+        EventManager.Instance.onPlayerFlip.Invoke();
+        BarrelRoll();
+        direction *= -1;
+    }
+
+    void BarrelRoll()
+    {
+        transform.DOComplete();
+        float duration = 0.7f;
+        Sequence barelRoll = DOTween.Sequence();
+        transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        barelRoll.Append(transform.DORotate(new Vector3(0, 90, -180), duration / 2));
+        barelRoll.Join(transform.DORotate(new Vector3(0, 90, -360), duration / 2));
+        barelRoll.SetEase(Ease.Linear);
+    }
+
     public override void DoUpdate()
     {
         base.DoUpdate();
         RecoverHit();
         GetInputs();
+        RotateShip();
         ManageShooting();
 
         if (Input.GetButtonDown("FlipShip"))
-        {
-            shooting.Update(false);
-            EventManager.Instance.onPlayerFlip.Invoke();
-            direction *= -1;
-        }
+            Flip();
     }
 
     public override void DoFixedUpdate()
