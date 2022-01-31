@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class GetPrefabPreview : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
@@ -34,3 +35,4 @@ public class GetPrefabPreview : MonoBehaviour
         AssetDatabase.Refresh();
     }
 }
+#endif

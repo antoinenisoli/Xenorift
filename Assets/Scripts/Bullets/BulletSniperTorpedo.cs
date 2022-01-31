@@ -28,6 +28,9 @@ public class BulletSniperTorpedo : BulletAccelerating
     public override void DoUpdate()
     {
         base.DoUpdate();
+        if (!ship)
+            return;
+
         direction = ship.transform.position - transform.position;
         float dist = transform.position.x - ship.transform.position.x;
         print(direction);

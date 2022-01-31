@@ -78,6 +78,8 @@ public class PlayerController : Entity
 
     public override void Death()
     {
+        Feedbacks.ScreenShake(0.3f, 6, 45);
+        Feedbacks.FreezeFrame(0.3f, 1.3f);
         EventManager.Instance.onPlayerDeath.Invoke();
         base.Death();
     }
