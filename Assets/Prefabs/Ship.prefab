@@ -91,22 +91,21 @@ MonoBehaviour:
   friction: 10
   shootingSpeed: 55
   shooting:
-    profilesToUse: []
     PlayerProfiles:
     - name: Right
       bullet: {fileID: 864542070921596931, guid: 4fe9e0ee8e491744bb5ec8ae2717f2d8, type: 3}
-      shootRate: 0.25
       shootPositions:
       - {fileID: 1525416004319007028}
       - {fileID: 5795744044460895479}
       shootTimer: 0
+      shootRate: 0.25
       Direction: 1
     - name: Left
       bullet: {fileID: 3696757966812072919, guid: 0a647087ac779ac44829d11db1c7b515, type: 3}
-      shootRate: 1
       shootPositions:
       - {fileID: 1797880308847378397}
       shootTimer: 0
+      shootRate: 0.5
       Direction: -1
   hitDuration: 2
 --- !u!54 &1525416003963675868

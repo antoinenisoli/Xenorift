@@ -36,4 +36,17 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.velocity = direction.normalized * speed;
     }
+
+    public virtual void DoUpdate()
+    {
+        Vector3 stageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        stageDimensions *= 1.5f;
+        if (transform.position.x > stageDimensions.y/2 || transform.position.x < -stageDimensions.y/2)
+            Destroy(gameObject);
+    }
+
+    public void Update()
+    {
+        DoUpdate();
+    }
 }

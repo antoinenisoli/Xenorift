@@ -18,11 +18,17 @@ public class PlayerController : Entity
 
     Vector3 futurePos => rb.velocity * GetSpeed() * Time.deltaTime;
 
+    public override void DoAwake()
+    {
+        base.DoAwake();
+        Hit();
+    }
+
     public override void DoStart()
     {
         base.DoStart();
         shooting.Init();
-        Hit();
+        shooting.Update(false);
     }
 
     void GetInputs()
@@ -89,7 +95,8 @@ public class PlayerController : Entity
     void ManageShooting()
     {
         isShooting = Input.GetButton("Shoot");
-        shooting.Update(isShooting);
+        if (isShooting)
+            shooting.Update(true);
     }
 
     float GetSpeed()
@@ -118,13 +125,15 @@ public class PlayerController : Entity
 
         if (Input.GetButtonDown("FlipShip"))
         {
+            shooting.Update(false);
             EventManager.Instance.onPlayerFlip.Invoke();
             direction *= -1;
         }
     }
 
-    void FixedUpdate()
+    public override void DoFixedUpdate()
     {
+        base.DoFixedUpdate();
         Move();
         ClampPosition();
     }

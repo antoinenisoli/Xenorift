@@ -18,6 +18,7 @@ public class Asteroid : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         myCollider = GetComponent<Collider>();
+        Destroy(gameObject, 60f);
     }
 
     private void Start()

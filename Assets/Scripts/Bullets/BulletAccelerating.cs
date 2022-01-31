@@ -17,8 +17,9 @@ public class BulletAccelerating : Bullet
         rb.velocity = direction * startSpeed;
     }
 
-    public virtual void Update()
+    public override void DoUpdate()
     {
+        base.DoUpdate();
         transform.rotation = targetRotation;
     }
 

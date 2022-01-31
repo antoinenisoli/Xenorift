@@ -22,14 +22,19 @@ public abstract class Entity : MonoBehaviour
 
     public void Awake()
     {
-        myCollider = GetComponentInChildren<Collider>();
-        rb = GetComponent<Rigidbody>();
-        Health.Initialize();
+        DoAwake();
     }
 
     public void Start()
     {
         DoStart();
+    }
+
+    public virtual void DoAwake() 
+    {
+        myCollider = GetComponentInChildren<Collider>();
+        rb = GetComponent<Rigidbody>();
+        Health.Initialize();
     }
 
     public virtual void DoStart() { }
@@ -73,7 +78,7 @@ public abstract class Entity : MonoBehaviour
     }
 
     public virtual void DoUpdate() { }
-    public virtual void DoFixedUpdate() { hit = false; }
+    public virtual void DoFixedUpdate() { }
 
     public void Update()
     {

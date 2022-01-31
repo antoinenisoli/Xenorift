@@ -111,4 +111,10 @@ public abstract class Enemy : Entity
         if (target)
             Attacking();
     }
+
+    public override void DoFixedUpdate()
+    {
+        base.DoFixedUpdate();
+        hit = false;
+    }
 }

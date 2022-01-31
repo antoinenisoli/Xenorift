@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     IEnumerator Respawn(float duration)
     {
         yield return new WaitForSeconds(duration);
+        VFXManager.Instance.PlayVFX("LaserSpawn");
         Instantiate(playerPrefab);
         EventManager.Instance.onPlayerSpawn.Invoke();
     }

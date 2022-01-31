@@ -17,8 +17,9 @@ public class PlayerShooting : Shooting
         }
     }
 
-    public virtual void Update(bool holding)
+    public override void Update(bool holding)
     {
+        base.Update(holding);
         foreach (var item in savedProfiles.Values)
         {
             if (!item.Available())
