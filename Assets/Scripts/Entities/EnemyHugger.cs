@@ -35,7 +35,7 @@ public class EnemyHugger : Enemy
             return;
 
         if (DistanceToPlayer() > stopDistance)
-            Accelerate((transform.forward * direction).normalized * movingSpeed);
+            Accelerate((Vector3.left * direction).normalized * movingSpeed);
         else if (!ready)
             ready = true;
     }
@@ -47,7 +47,7 @@ public class EnemyHugger : Enemy
         inCharge = true;
         visual.DOComplete();
         transform.DOKill();
-        transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.right * direction), 0.25f);
+        transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.left * direction), 0.25f);
         SoundManager.Instance.PlayAudio("HuggerAttack");
     }
 
@@ -79,6 +79,6 @@ public class EnemyHugger : Enemy
     {
         base.DoFixedUpdate();
         if (inCharge)
-            rb.AddForce(Vector3.right * acceleration * direction, ForceMode.Acceleration);
+            rb.AddForce(Vector3.left * acceleration * direction, ForceMode.Acceleration);
     }
 }

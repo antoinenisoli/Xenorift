@@ -8,27 +8,34 @@ public class BulletSniperTorpedo : BulletAccelerating
     [SerializeField] protected float maxDistance = 20f;
     PlayerController ship;
     bool active = true;
+    Vector3 direction;
 
-    private void Awake()
+    public override void OnStart()
     {
-        ship = FindObjectOfType<PlayerController>();
-        Vector3 direction = ship.transform.position - transform.position;
+        base.OnStart();
+        EventManager.Instance.onPlayerSpawn.AddListener(GetPlayer);
+        GetPlayer();
+        direction = ship.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(direction.normalized);
+    }
+
+    void GetPlayer()
+    {
+        if (!ship)
+            ship = FindObjectOfType<PlayerController>();
     }
 
     public override void DoUpdate()
     {
         base.DoUpdate();
-        if (!ship)
-            return;
-
-        Vector3 direction = ship.transform.position - transform.position;
+        direction = ship.transform.position - transform.position;
         float dist = transform.position.x - ship.transform.position.x;
+        print(direction);
         if (dist < maxDistance)
             active = false;
 
         if (active)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), rotationSpeed * Time.deltaTime);
+            targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(direction.normalized), rotationSpeed * Time.deltaTime);
     }
 
     public override void FixedUpdate()

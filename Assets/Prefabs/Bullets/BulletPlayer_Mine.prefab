@@ -64,6 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f812a0c393aca143ab1d49e808ea93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSound: player_mine1
+  deathSound: player_mine_impact
   team: 0
   speed: 80
   damage: 8

@@ -6,6 +6,7 @@ public class EnemyShooter : Enemy
 {
     [Header(nameof(EnemyShooter))]
     [SerializeField] EnemyShooting shooting;
+    bool close;
 
     public override void DoStart()
     {
@@ -16,12 +17,5 @@ public class EnemyShooter : Enemy
     public override void Attacking()
     {
         shooting.Update(DistanceToPlayer() < attackDistance);
-    }
-
-    public override void DoUpdate()
-    {
-        base.DoUpdate();
-        if (!target)
-            shooting.Update(false);
     }
 }

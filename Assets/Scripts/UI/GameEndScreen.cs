@@ -23,19 +23,28 @@ public class GameEndScreen : MonoBehaviour
     {
         text.text = "Area cleared !";
         screen.DOFade(1, 0.5f);
-        gameCompleted = true;
+        StartCoroutine(Wait(true));
     }
 
     void GameOverFade()
     {
         text.text = "Game over !";
         screen.DOFade(1, 0.5f);
-        gameOver = true;
+        StartCoroutine(Wait(false));
+    }
+
+    IEnumerator Wait(bool b)
+    {
+        yield return new WaitForSeconds(2f);
+        if (b)
+            gameCompleted = true;
+        else
+            gameOver = true;
     }
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (gameOver)
                 SceneManager.LoadScene(1);

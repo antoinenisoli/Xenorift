@@ -11,13 +11,25 @@ public enum Team
 public class Bullet : MonoBehaviour
 {
     protected Rigidbody rb;
+    [SerializeField] protected string spawnSound, deathSound;
     [SerializeField] protected Team team;
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected int damage = 10;
 
-    private void Awake()
+    public void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         Destroy(gameObject, 30f);
+    }
+
+    public void Start()
+    {
+        OnStart();
+    }
+
+    public virtual void OnStart()
+    {
+        SoundManager.Instance.PlayAudio(spawnSound);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +37,7 @@ public class Bullet : MonoBehaviour
         Entity entity = other.GetComponent<Entity>();
         if (entity && entity.team != team)
         {
+            SoundManager.Instance.PlayAudio(deathSound);
             VFXManager.Instance.PlayVFX("Damaged", transform.position);
             entity.TakeDamages(damage);
             Destroy(gameObject);

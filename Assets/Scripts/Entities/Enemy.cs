@@ -10,7 +10,7 @@ public abstract class Enemy : Entity
     [SerializeField] protected float stopDistance = 3f;
     [SerializeField] protected float attackDistance = 5f;
     protected Vector3 velocity;
-    protected bool up = true;
+    public bool up = true;
     EnemyWave myWave;
 
     public float dist;
@@ -34,7 +34,8 @@ public abstract class Enemy : Entity
 
     private void OnDestroy()
     {
-        myWave.Remove(this);
+        if (myWave != null)
+            myWave.Remove(this);
     }
 
     public override void DoStart()
@@ -60,15 +61,21 @@ public abstract class Enemy : Entity
     Vector3 VerticalMove()
     {
         Vector3 vel;
-        float offset = 10;
-        if (transform.position.z > gameBounds.size.z / 2 - offset)
+        float offset = 5;
+        if (transform.position.z > (gameBounds.size.z / 2) - offset)
         {
+            Vector3 v = transform.position;
+            v.z = (gameBounds.size.z / 2) - offset;
+            transform.position = v;
             rb.velocity = Vector3.zero;
             up = false;
         }
 
-        if (transform.position.z < -gameBounds.size.z / 2 + offset)
+        if (transform.position.z < (-gameBounds.size.z / 2) + offset)
         {
+            Vector3 v = transform.position;
+            v.z = (-gameBounds.size.z / 2) + offset;
+            transform.position = v;
             rb.velocity = Vector3.zero;
             up = true;
         }
@@ -108,8 +115,7 @@ public abstract class Enemy : Entity
         base.DoUpdate();
         Move();
         dist = DistanceToPlayer();
-        if (target)
-            Attacking();
+        Attacking();
     }
 
     public override void DoFixedUpdate()

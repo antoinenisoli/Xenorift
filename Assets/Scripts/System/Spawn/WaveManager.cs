@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     public Vector3 RandomPos()
     {
         Vector3 range = GameManager.Instance.moveBounds.extents;
-        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z, range.z));
+        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z + 5, range.z - 5));
         return Vector3.forward * randomZ;
     }
 

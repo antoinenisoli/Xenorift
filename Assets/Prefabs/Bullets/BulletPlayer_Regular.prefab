@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58be6c0bb85fc544fbf3ecf97cc59e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSound: player_laser
+  deathSound: player_laser_impact
   team: 0
   speed: 80
   damage: 1

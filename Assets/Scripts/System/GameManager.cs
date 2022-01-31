@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer()
     {
+        SoundManager.Instance.PlayAudio("player_dead");
         PlayerLife.CurrentHealth--;
         EventManager.Instance.onPlayerDamaged.Invoke();
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         VFXManager.Instance.PlayVFX("LaserSpawn");
+        SoundManager.Instance.PlayAudio("player_respawn");
         Instantiate(playerPrefab);
         EventManager.Instance.onPlayerSpawn.Invoke();
     }

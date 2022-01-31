@@ -7,10 +7,12 @@ public class PlayerController : Entity
 {
     [Header(nameof(PlayerController))]
     [SerializeField] float shootingSpeed = 10f;
+    [SerializeField] Transform shipPivot;
     [SerializeField] PlayerShooting shooting;
     Vector3 inputs;
     Vector3 vel;
     bool isShooting;
+    [SerializeField] Vector3 shipRotation;
 
     [Header("Hit")]
     [SerializeField] protected float hitDuration = 0.5f;
@@ -90,6 +92,12 @@ public class PlayerController : Entity
             vel.y = rb.velocity.y;
             Accelerate(vel);
         }
+
+        shipRotation.z = inputs.z * -90;
+        shipRotation.x = inputs.x * 90;
+        shipRotation = GameDevHelper.ClampVector3(shipRotation, Vector3.one * 15);
+        Quaternion rot = Quaternion.Euler(shipRotation);
+        shipPivot.localRotation = Quaternion.Slerp(shipPivot.localRotation, rot, 10 * Time.deltaTime);
     }
 
     void ManageShooting()
@@ -110,10 +118,7 @@ public class PlayerController : Entity
     void ClampPosition()
     {
         if (!gameBounds.Contains(transform.position))
-        {
             transform.position = GameDevHelper.ClampVector3(transform.position, gameBounds.size/2);
-            //rb.velocity = Vector3.zero;
-        }
     }
 
     public override void DoUpdate()
