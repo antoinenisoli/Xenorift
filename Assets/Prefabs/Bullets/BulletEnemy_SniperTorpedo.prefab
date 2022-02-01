@@ -195,12 +195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62fe6e131bb1f5a44a0b17b5764c5ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSound: 
-  deathSound: 
-  destroyVFXName: impact_laser
   team: 1
   speed: 50
   damage: 1
+  spawnSound: snoiper_pew_pew
+  deathSound: 
+  destroyVFXName: impact_enemyprojectile
   startSpeed: 2
   acceleration: 1
   rotationSpeed: 15

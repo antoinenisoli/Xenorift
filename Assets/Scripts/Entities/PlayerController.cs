@@ -7,7 +7,6 @@ public class PlayerController : Entity
 {
     [Header(nameof(PlayerController))]
     [SerializeField] float shootingSpeed = 10f;
-    [SerializeField] Transform shipPivot;
     [SerializeField] float switchDelay = 0.2f;
     float switchTimer;
     [SerializeField] PlayerShooting shooting;
@@ -15,9 +14,11 @@ public class PlayerController : Entity
     Vector3 vel;
     bool isShooting;
 
-    [Header("Rotation")]
+    [Header("Visuals")]
+    [SerializeField] Transform shipPivot;
     [SerializeField] Vector3 shipRotationLimits;
     [SerializeField] float rotateSpeed = 10f;
+    [SerializeField] GameObject laserVisor, mineVisor;
 
     [Header("Hit")]
     [SerializeField] protected float hitDuration = 0.5f;
@@ -30,6 +31,8 @@ public class PlayerController : Entity
     public override void DoAwake()
     {
         base.DoAwake();
+        laserVisor.SetActive(direction > 0);
+        mineVisor.SetActive(direction < 0);
         switchTimer = switchDelay;
         Hit();
     }
@@ -143,6 +146,8 @@ public class PlayerController : Entity
         EventManager.Instance.onPlayerFlip.Invoke();
         BarrelRoll();
         direction *= -1;
+        laserVisor.SetActive(direction > 0);
+        mineVisor.SetActive(direction < 0);
     }
 
     void BarrelRoll()
@@ -165,6 +170,7 @@ public class PlayerController : Entity
         RecoverHit();
         GetInputs();
         RotateShip();
+        myCollider.enabled = !hit;
         if (!Input.GetButton("FlipShip"))
             ManageShooting();
 

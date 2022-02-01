@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6031179313753670726}
   - component: {fileID: 7213876225641008099}
   - component: {fileID: 4897701416340504361}
+  - component: {fileID: 6202786618092264253}
   m_Layer: 0
   m_Name: Xenorift
   m_TagString: Untagged
@@ -82,3 +83,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!111 &6202786618092264253
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6411117117571636988}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ce7f3ee417c39b443942bca69c7d7774, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ce7f3ee417c39b443942bca69c7d7774, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

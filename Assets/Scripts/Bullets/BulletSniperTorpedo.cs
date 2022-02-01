@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletSniperTorpedo : BulletAccelerating
 {
+    [Header(nameof(BulletSniperTorpedo))]
     [SerializeField] protected float rotationSpeed = 10f;
     [SerializeField] protected float maxDistance = 20f;
     PlayerController ship;

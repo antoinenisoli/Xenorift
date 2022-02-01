@@ -5,10 +5,10 @@ using UnityEngine;
 public class BulletAccelerating : Bullet
 {
     [Header(nameof(BulletAccelerating))]
-    protected Vector3 targetVelocity;
     [SerializeField] protected float startSpeed = 3;
     [SerializeField] protected float acceleration;
     protected Quaternion targetRotation;
+    protected Vector3 targetVelocity;
 
     public override void Shot(Vector3 direction, Entity origin)
     {

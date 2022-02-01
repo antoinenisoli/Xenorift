@@ -17,8 +17,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected int damage = 10;
 
     [Header("Feedbacks")]
-    [SerializeField] protected string spawnSound, deathSound;
     [SerializeField] protected string destroyVFXName;
+    [SerializeField] protected string spawnSound, deathSound;
 
     public void Awake()
     {
