@@ -8,6 +8,8 @@ public class PlayerController : Entity
     [Header(nameof(PlayerController))]
     [SerializeField] float shootingSpeed = 10f;
     [SerializeField] Transform shipPivot;
+    [SerializeField] float switchDelay = 0.2f;
+    float switchTimer;
     [SerializeField] PlayerShooting shooting;
     Vector3 inputs;
     Vector3 vel;
@@ -21,18 +23,21 @@ public class PlayerController : Entity
     [SerializeField] protected float hitDuration = 0.5f;
     protected float hitTimer;
 
+    Sequence barelRoll;
+
     Vector3 futurePos => rb.velocity * GetSpeed() * Time.deltaTime;
 
     public override void DoAwake()
     {
         base.DoAwake();
+        switchTimer = switchDelay;
         Hit();
     }
 
     public override void DoStart()
     {
         base.DoStart();
-        shooting.Init();
+        shooting.Init(this);
         shooting.Update(false);
     }
 
@@ -84,6 +89,7 @@ public class PlayerController : Entity
         Feedbacks.ScreenShake(0.3f, 6, 45);
         Feedbacks.FreezeFrame(0.3f, 1.3f);
         EventManager.Instance.onPlayerDeath.Invoke();
+        VFXManager.Instance.PlayVFX("player_dead", transform.position);
         base.Death();
     }
 
@@ -132,6 +138,7 @@ public class PlayerController : Entity
 
     void Flip()
     {
+        switchTimer = 0;
         shooting.Update(false);
         EventManager.Instance.onPlayerFlip.Invoke();
         BarrelRoll();
@@ -140,13 +147,16 @@ public class PlayerController : Entity
 
     void BarrelRoll()
     {
+        barelRoll.Complete();
         transform.DOComplete();
+
         float duration = 0.7f;
-        Sequence barelRoll = DOTween.Sequence();
+        barelRoll = DOTween.Sequence();
         transform.rotation = Quaternion.Euler(Vector3.up * 90);
         barelRoll.Append(transform.DORotate(new Vector3(0, 90, -180), duration / 2));
         barelRoll.Join(transform.DORotate(new Vector3(0, 90, -360), duration / 2));
         barelRoll.SetEase(Ease.Linear);
+        VFXManager.Instance.PlayVFX("barrel_roll", transform.position);
     }
 
     public override void DoUpdate()
@@ -155,10 +165,13 @@ public class PlayerController : Entity
         RecoverHit();
         GetInputs();
         RotateShip();
-        ManageShooting();
+        if (!Input.GetButton("FlipShip"))
+            ManageShooting();
 
-        if (Input.GetButtonDown("FlipShip"))
+        if (Input.GetButtonDown("FlipShip") && switchTimer >= switchDelay)
             Flip();
+        else
+            switchTimer += Time.deltaTime;
     }
 
     public override void DoFixedUpdate()

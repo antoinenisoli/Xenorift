@@ -92,6 +92,7 @@ MonoBehaviour:
   friction: 10
   shootingSpeed: 55
   shipPivot: {fileID: 2058502225443905340}
+  switchDelay: 1
   shooting:
     PlayerProfiles:
     - name: Right

@@ -8,7 +8,7 @@ public class PlayerShooting : Shooting
     public List<PlayerShootProfile> PlayerProfiles = new List<PlayerShootProfile>();
     public Dictionary<string, PlayerShootProfile> savedProfiles = new Dictionary<string, PlayerShootProfile>();
 
-    public override void Init()
+    public override void Init(Entity entity)
     {
         foreach (var item in PlayerProfiles)
         {

@@ -6,10 +6,21 @@ public class SelfDestroyVFX : MonoBehaviour
 {
     ParticleSystem fx => GetComponent<ParticleSystem>();
 
-    IEnumerator Start()
+    public void Destroy(float customDelay)
     {
-        fx.Play();
-        yield return new WaitForSeconds(fx.main.duration + fx.main.startLifetimeMultiplier);
+        StartCoroutine(SelfDestruction(customDelay));
+    }
+
+    IEnumerator SelfDestruction(float customDelay)
+    {
+        if (!fx)
+            yield return new WaitForSeconds(customDelay);
+        else
+        {
+            fx.Play();
+            yield return new WaitForSeconds(fx.main.duration + fx.main.startLifetimeMultiplier);
+        }
+        
         Destroy(gameObject);
     }
 }

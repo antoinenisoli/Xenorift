@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSound: player_laser
   deathSound: player_laser_impact
+  destroyVFXName: impact_laser
   team: 0
   speed: 80
   damage: 1

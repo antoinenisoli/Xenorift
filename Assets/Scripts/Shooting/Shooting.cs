@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Shooting
 {
-    public virtual void Init() { }
+    Entity myEntity;
+
+    public virtual void Init(Entity entity) { myEntity = entity; }
 
     public virtual void Shoot(ShootProfile profile)
     {
@@ -16,7 +18,7 @@ public abstract class Shooting
 
             GameObject bullet = Object.Instantiate(profile.bullet, item.position, Quaternion.identity);
             Bullet b = bullet.GetComponent<Bullet>();
-            b.Shot(item.forward);
+            b.Shot(item.forward, myEntity);
         }
     }
 

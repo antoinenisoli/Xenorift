@@ -10,10 +10,10 @@ public class BulletAccelerating : Bullet
     [SerializeField] protected float acceleration;
     protected Quaternion targetRotation;
 
-    public override void Shot(Vector3 direction)
+    public override void Shot(Vector3 direction, Entity origin)
     {
+        base.Shot(direction, origin);
         targetVelocity = direction * speed;
-        rb = GetComponent<Rigidbody>();
         rb.velocity = direction * startSpeed;
     }
 

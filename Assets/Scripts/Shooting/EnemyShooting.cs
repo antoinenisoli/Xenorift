@@ -9,9 +9,9 @@ public class EnemyShooting : Shooting
     [SerializeField] Vector2 randomShootRateRange;
     float myShootRate;
 
-    public override void Init()
+    public override void Init(Entity entity)
     {
-        base.Init();
+        base.Init(entity);
         myShootRate = GameDevHelper.RandomInRange(randomShootRateRange);
     }
 

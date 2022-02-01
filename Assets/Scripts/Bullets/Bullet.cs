@@ -11,10 +11,14 @@ public enum Team
 public class Bullet : MonoBehaviour
 {
     protected Rigidbody rb;
-    [SerializeField] protected string spawnSound, deathSound;
+    protected Entity myShooter;
     [SerializeField] protected Team team;
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected int damage = 10;
+
+    [Header("Feedbacks")]
+    [SerializeField] protected string spawnSound, deathSound;
+    [SerializeField] protected string destroyVFXName;
 
     public void Awake()
     {
@@ -37,16 +41,20 @@ public class Bullet : MonoBehaviour
         Entity entity = other.GetComponent<Entity>();
         if (entity && entity.team != team)
         {
-            SoundManager.Instance.PlayAudio(deathSound);
-            VFXManager.Instance.PlayVFX("Damaged", transform.position);
+            if (!string.IsNullOrEmpty(deathSound))
+                SoundManager.Instance.PlayAudio(deathSound);
+            if (!string.IsNullOrEmpty(destroyVFXName))
+                VFXManager.Instance.PlayVFX(destroyVFXName, transform.position);
+
             entity.TakeDamages(damage);
             Destroy(gameObject);
         }
     }
 
-    public virtual void Shot(Vector3 direction)
+    public virtual void Shot(Vector3 direction, Entity origin)
     {
         rb = GetComponent<Rigidbody>();
+        myShooter = origin;
         rb.velocity = direction.normalized * speed;
     }
 

@@ -9,10 +9,17 @@ public class VFXManager : MonoBehaviour
     {
         public GameObject prefab;
         public string name;
+
+        public VFX(GameObject prefab, string name)
+        {
+            this.prefab = prefab;
+            this.name = name;
+        }
     }
 
     public static VFXManager Instance;
-    [SerializeField] VFX[] vfx;
+    [SerializeField] GameObject[] prefabs;
+    [SerializeField] List<VFX> vfx = new List<VFX>();
     Dictionary<string, GameObject> allVFX = new Dictionary<string, GameObject>();
 
     private void Awake()
@@ -30,6 +37,15 @@ public class VFXManager : MonoBehaviour
                 allVFX.Add(item.name, item.prefab);
     }
 
+    [ContextMenu(nameof(Convert))]
+    public void Convert()
+    {
+        foreach (var item in prefabs)
+        {
+            vfx.Add(new VFX(item, item.name));
+        }
+    }
+
     /// <summary>
     /// Spawn and play a stored VFX prefab at a given position by calling it by his name.
     /// </summary>
@@ -39,7 +55,14 @@ public class VFXManager : MonoBehaviour
         {
             GameObject newVFX = Instantiate(prefab, pos, Quaternion.identity, parent);
             if (destroy)
-                Destroy(newVFX, 1.5f);
+            {
+                SelfDestroyVFX selfDestroy = newVFX.GetComponentInChildren<SelfDestroyVFX>();
+                if (!selfDestroy)
+                    selfDestroy = newVFX.AddComponent<SelfDestroyVFX>();
+
+                selfDestroy.Destroy(1.5f);
+            }
+
             return newVFX;
         }
         else

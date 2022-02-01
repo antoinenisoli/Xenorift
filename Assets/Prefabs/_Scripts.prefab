@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d55cc09bfbfb845a3eee495003a154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabs: []
   vfx:
   - prefab: {fileID: 4638084285435910925, guid: 49c979548ab60874eb5cef59371516d8, type: 3}
     name: Explosion
@@ -148,6 +149,22 @@ MonoBehaviour:
     name: Damaged
   - prefab: {fileID: 1305448867803011890, guid: 548f3fa5ffcd3de409d40c6044707c40, type: 3}
     name: LaserSpawn
+  - prefab: {fileID: 1728870145643952030, guid: 598e7418a1d0da04fabeb885f3b52392, type: 3}
+    name: asteroid_intangible
+  - prefab: {fileID: 421217530070565304, guid: 60f9e1c960e2f274e88c3341ab26f5bd, type: 3}
+    name: asteroid_tangible
+  - prefab: {fileID: 3989935525505897484, guid: 6e75225f7e71581448cc68ffadf4cfd5, type: 3}
+    name: barrel_roll
+  - prefab: {fileID: 2398702636574370936, guid: 2711df44a94496c47974d999bcf967f8, type: 3}
+    name: ennemy_common_dead
+  - prefab: {fileID: 3130709541864358896, guid: bd4c03871c3665447af4f7c81d868c5c, type: 3}
+    name: ennemy_dead
+  - prefab: {fileID: 6177896547659929938, guid: e0abf083e23437e4485793309fcc444a, type: 3}
+    name: impact_laser
+  - prefab: {fileID: 6616509417620979744, guid: 516fbd23f97f8cd4c9acd3a2f52a95ed, type: 3}
+    name: impact_mine
+  - prefab: {fileID: 5439446273245373185, guid: 409d999b2da112542b990ef29dcbbc0c, type: 3}
+    name: player_dead
 --- !u!1 &6270613776732804159
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +348,7 @@ MonoBehaviour:
   volume: {fileID: 0}
   PlayerLife:
     currentHealth: 0
-    maxHealth: 10
+    maxHealth: 3
   playerPrefab: {fileID: 1525416003963675864, guid: c7f8146c67f32c74381f5ad62ba847bd, type: 3}
   respawnDelay: 1
   gizmoColor: {r: 0.0897603, g: 1, b: 0, a: 0.35686275}

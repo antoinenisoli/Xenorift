@@ -58,9 +58,12 @@ MonoBehaviour:
   target: {fileID: 0}
   stopDistance: 130
   attackDistance: 130
+  up: 1
+  deathSound: "calinx_d\xE9c\xE9d\xE8re"
   chargeDuration: 1.5
   attackRate: 5
   damage: 1
+  attackSound: calinx_charj
 --- !u!54 &531133006347493909
 Rigidbody:
   m_ObjectHideFlags: 0

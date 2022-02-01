@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSound: player_mine1
   deathSound: player_mine_impact
+  destroyVFXName: impact_mine
   team: 0
   speed: 80
   damage: 8

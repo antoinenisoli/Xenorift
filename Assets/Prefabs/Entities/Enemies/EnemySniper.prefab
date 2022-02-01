@@ -60,7 +60,7 @@ MonoBehaviour:
   stopDistance: 130
   attackDistance: 130
   up: 1
-  dist: 0
+  deathSound: "snoiper_d\xE9c\xE9d\xE8re"
   shooting:
     profile:
       name: Torpedo

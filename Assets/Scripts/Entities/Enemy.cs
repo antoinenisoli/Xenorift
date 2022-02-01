@@ -12,8 +12,10 @@ public abstract class Enemy : Entity
     protected Vector3 velocity;
     public bool up = true;
     EnemyWave myWave;
+    float dist;
 
-    public float dist;
+    [Header("Feedbacks")]
+    [SerializeField] string deathSound;
 
     private void OnDrawGizmosSelected()
     {
@@ -56,6 +58,9 @@ public abstract class Enemy : Entity
         base.Death();
         Feedbacks.ScreenShake(0.3f, 3, 45);
         Feedbacks.FreezeFrame(0.3f, 0.2f);
+        VFXManager.Instance.PlayVFX("ennemy_common_dead", transform.position);
+        if (!string.IsNullOrEmpty(deathSound))
+            SoundManager.Instance.PlayAudio(deathSound);
     }
 
     protected Vector3 VerticalMove()

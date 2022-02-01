@@ -9,6 +9,7 @@ public class EnemyHugger : Enemy
     [SerializeField] float chargeDuration = 0.4f;
     [SerializeField] float attackRate;
     [SerializeField] int damage = 1;
+    [SerializeField] string attackSound;
     float attackTimer;
     bool ready;
     bool inCharge;
@@ -52,7 +53,8 @@ public class EnemyHugger : Enemy
         visual.DOComplete();
         transform.DOKill();
         transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.left * direction), 0.25f);
-        SoundManager.Instance.PlayAudio("HuggerAttack");
+        if (!string.IsNullOrEmpty(attackSound))
+            SoundManager.Instance.PlayAudio(attackSound);
     }
 
     public override void Attacking()

@@ -11,7 +11,7 @@ public class EnemyShooter : Enemy
     public override void DoStart()
     {
         base.DoStart();
-        shooting.Init();
+        shooting.Init(this);
     }
 
     public override void Attacking()

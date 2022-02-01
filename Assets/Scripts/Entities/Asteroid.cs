@@ -46,6 +46,9 @@ public class Asteroid : MonoBehaviour
         Material[] newMaterials = meshRenderer.materials;
         newMaterials[0] = checkDirection ? tangibleMat : intangibleMat;
         meshRenderer.materials = newMaterials;
+
+        string fxName = checkDirection ? "asteroid_tangible" : "asteroid_intangible";
+        VFXManager.Instance.PlayVFX(fxName, transform.position);
     }
 
     private void FixedUpdate()

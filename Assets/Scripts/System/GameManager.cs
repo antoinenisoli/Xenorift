@@ -86,10 +86,10 @@ public class GameManager : MonoBehaviour
     IEnumerator Respawn(float duration)
     {
         yield return new WaitForSeconds(duration);
-        VFXManager.Instance.PlayVFX("LaserSpawn");
         SoundManager.Instance.PlayAudio("player_respawn");
-        Instantiate(playerPrefab);
+        GameObject player = Instantiate(playerPrefab);
         EventManager.Instance.onPlayerSpawn.Invoke();
+        VFXManager.Instance.PlayVFX("LaserSpawn", player.transform.position);
     }
 
     public void FlipPlayer()
