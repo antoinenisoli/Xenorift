@@ -44,7 +44,7 @@ public class GameEndScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Submit"))
         {
             if (gameOver)
                 SceneManager.LoadScene(1);

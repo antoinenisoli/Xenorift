@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3425750291217413973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 115, y: 0, z: 0}
+  m_LocalPosition: {x: 306.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3314305544372085100}
@@ -264,22 +264,22 @@ MonoBehaviour:
   sounds:
   - soundType: player_cayou_tanjible
     clip: {fileID: 8300000, guid: b32d56cc34fc621419b7431f1d81e388, type: 3}
-    volume: 0.3
+    volume: 0.723
     pitch: 1
     radius: 20
   - soundType: player_dead
     clip: {fileID: 8300000, guid: 4b7043377dc49c24aa5f5d929e0d6d1d, type: 3}
-    volume: 0.3
+    volume: 0.447
     pitch: 1
     radius: 20
   - soundType: player_laser
     clip: {fileID: 8300000, guid: d92716396c5c7564db917a554f9c282f, type: 3}
-    volume: 0.3
+    volume: 0.165
     pitch: 1
     radius: 20
   - soundType: player_laser_impact
     clip: {fileID: 8300000, guid: 652066fccf00c254aab4517a8ec6da97, type: 3}
-    volume: 0.3
+    volume: 0.126
     pitch: 1
     radius: 20
   - soundType: player_mine1
@@ -314,12 +314,12 @@ MonoBehaviour:
     radius: 20
   - soundType: player_respawn
     clip: {fileID: 8300000, guid: e11031eedd5f8f445b41dc63be224705, type: 3}
-    volume: 0.3
+    volume: 0.42
     pitch: 1
     radius: 20
   - soundType: "basic_d\xE9c\xE9d\xE8re"
     clip: {fileID: 8300000, guid: 15586f0a9a8cc8944b5c9c2523d643cc, type: 3}
-    volume: 0.3
+    volume: 0.625
     pitch: 1
     radius: 20
   - soundType: basic_pew_pew
@@ -329,7 +329,7 @@ MonoBehaviour:
     radius: 20
   - soundType: calinx_charj
     clip: {fileID: 8300000, guid: bcda1b1fd37ea614286c73f68e1ce7ac, type: 3}
-    volume: 0.3
+    volume: 0.608
     pitch: 1
     radius: 20
   - soundType: "calinx_d\xE9c\xE9d\xE8re"
@@ -339,7 +339,7 @@ MonoBehaviour:
     radius: 20
   - soundType: "snoiper_d\xE9c\xE9d\xE8re"
     clip: {fileID: 8300000, guid: d1596951a3a56094c9943e5bfde17137, type: 3}
-    volume: 0.3
+    volume: 0.474
     pitch: 1
     radius: 20
   - soundType: snoiper_pew_pew
