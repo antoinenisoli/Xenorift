@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager Instance;
+    List<IProjectile> projectiles = new List<IProjectile>();
+
     [Header("Enemy waves")]
     [SerializeField] Transform enemyParent;
     [SerializeField] Transform leftSpawn, rightSpawn;
@@ -20,6 +24,18 @@ public class WaveManager : MonoBehaviour
 
     float generationDelay;
     float timer;
+
+    private void Awake()
+    {
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        var list = FindObjectsOfType<MonoBehaviour>().OfType<IProjectile>();
+        foreach (IProjectile s in list)
+            s.Death();
+    }
 
     private void Start()
     {
@@ -43,17 +59,34 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator StartNewWave()
     {
+        foreach (IProjectile s in projectiles)
+            s.Death();
+
         yield return new WaitForEndOfFrame();
         SoundManager.Instance.PlayAudio("alarm");
         EventManager.Instance.onNewWave.Invoke(waves[index].delay - 1);
         yield return new WaitForSeconds(waves[index].delay);
+        StartCoroutine(NewAsteroidWave());
         Spawn();
+    }
+
+    public void AddProjectile(IProjectile projectile)
+    {
+        projectiles.Add(projectile);
+    }
+
+    public void RemoveProjectile(IProjectile projectile)
+    {
+        projectiles.Remove(projectile);
     }
 
     void NextWave()
     {
         if (index < waves.Length)
+        {
+            StopAllCoroutines();
             StartCoroutine(StartNewWave());
+        }
         else
         {
             print("victory");
@@ -73,6 +106,22 @@ public class WaveManager : MonoBehaviour
             newAsteroid.transform.position = RandomPos() + leftSpawn.position;
         else
             newAsteroid.transform.position = RandomPos() + rightSpawn.position;
+
+        AddProjectile(asteroid);
+    }
+
+    IEnumerator NewAsteroidWave()
+    {
+        while (true)
+        {
+            yield return null;
+            timer += Time.deltaTime;
+            if (timer > generationDelay && spawnedAsteroids.Count < maxGeneratedAsteroids)
+            {
+                timer = 0;
+                SpawnAsteroid();
+            }
+        }
     }
 
     void ManageSpawn()
@@ -84,13 +133,6 @@ public class WaveManager : MonoBehaviour
                 index++;
                 NextWave();
             }
-        }
-
-        timer += Time.deltaTime;
-        if (timer > generationDelay && spawnedAsteroids.Count < maxGeneratedAsteroids)
-        {
-            timer = 0;
-            SpawnAsteroid();
         }
     }
 

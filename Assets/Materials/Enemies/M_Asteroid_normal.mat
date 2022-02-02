@@ -115,14 +115,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBaseCutout: 1
-    - _Brightness: 0.403
+    - _Brightness: 0.81
     - _BumpScale: 1
     - _Compa: 8
     - _CustomLightDirectionFollowObjectRotation: 0
     - _CustomLightDirectionIntensity: 0
     - _Cutoff: 0.5
     - _Cutout: 0.683
-    - _Detail: 0.238
+    - _Detail: 0.09
     - _DetailNormalMapScale: 1
     - _DoubleSided: 0
     - _DstBlend: 0
@@ -235,7 +235,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularIntensity: 105.6
     - _SrcBlend: 1
-    - _Strength: 0.802
+    - _Strength: 0.77
     - _TexturePatternStyle: 1
     - _Transparent: 1
     - _UVSec: 0

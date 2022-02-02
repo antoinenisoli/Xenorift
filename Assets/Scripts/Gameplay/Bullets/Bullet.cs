@@ -8,7 +8,7 @@ public enum Team
     Enemy,
 }
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IProjectile
 {
     protected Rigidbody rb;
     protected Entity myShooter;
@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
     public void Start()
     {
         OnStart();
+        WaveManager.Instance.AddProjectile(this);
     }
 
     public virtual void OnStart()
@@ -41,14 +42,30 @@ public class Bullet : MonoBehaviour
         Entity entity = other.GetComponent<Entity>();
         if (entity && entity.team != team)
         {
-            if (!string.IsNullOrEmpty(deathSound))
-                SoundManager.Instance.PlayAudio(deathSound);
-            if (!string.IsNullOrEmpty(destroyVFXName))
-                VFXManager.Instance.PlayVFX(destroyVFXName, transform.position);
-
             entity.TakeDamages(damage);
-            Destroy(gameObject);
+            Death();
         }
+
+        Asteroid asteroid = other.GetComponent<Asteroid>();
+        if (asteroid && team == Team.Player)
+        {
+            Death();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        WaveManager.Instance.RemoveProjectile(this);
+    }
+
+    public void Death()
+    {
+        if (!string.IsNullOrEmpty(deathSound))
+            SoundManager.Instance.PlayAudio(deathSound);
+        if (!string.IsNullOrEmpty(destroyVFXName))
+            VFXManager.Instance.PlayVFX(destroyVFXName, transform.position);
+
+        Destroy(gameObject);
     }
 
     public virtual void Shot(Vector3 direction, Entity origin)

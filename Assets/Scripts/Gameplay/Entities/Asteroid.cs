@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : MonoBehaviour, IProjectile
 {
     public int direction = 1;
     [SerializeField] Vector2 randomSpeedRange;
@@ -25,8 +25,12 @@ public class Asteroid : MonoBehaviour
     {
         EventManager.Instance.onPlayerFlip.AddListener(UpdateState);
         speed = GameDevHelper.RandomInRange(randomSpeedRange);
-        direction = GameManager.Instance.RandomDirection();
         UpdateState();
+    }
+
+    private void OnDestroy()
+    {
+        WaveManager.Instance.RemoveProjectile(this);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,8 +39,14 @@ public class Asteroid : MonoBehaviour
         if (player)
         {
             player.TakeDamages(1);
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death()
+    {
+        VFXManager.Instance.PlayVFX("asteroid_tangible", transform.position);
+        Destroy(gameObject);
     }
 
     private void UpdateState()
