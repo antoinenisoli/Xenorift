@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154257571161392291}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.05, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29549548, y: 0.29549542, z: 0.29549542}
   m_Children: []
   m_Father: {fileID: 686701424976829871}
@@ -75,7 +75,7 @@ TrailRenderer:
   m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1.5
+    widthMultiplier: 3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -93,7 +93,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.6556604, b: 0.6556604, a: 0.5882353}
+      key0: {r: 1, g: 0.6556604, b: 0.6556604, a: 0.39215687}
       key1: {r: 1, g: 0, b: 0.39841652, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 864542070921596931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.675883, y: 5.675883, z: 5.675883}
+  m_LocalScale: {x: 4.658452, y: 4.658452, z: 4.658452}
   m_Children:
   - {fileID: 686701424976829871}
   m_Father: {fileID: 0}
@@ -178,9 +178,9 @@ MonoBehaviour:
   team: 1
   speed: 50
   damage: 1
+  destroyVFXName: impact_enemyprojectile
   spawnSound: basic_pew_pew
   deathSound: 
-  destroyVFXName: impact_enemyprojectile
 --- !u!54 &5644854261534586135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,15 +223,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1439179068109976243, guid: 592b374f235d17a4e87133120648f943, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.59623265
+      value: 0.61868966
       objectReference: {fileID: 0}
     - target: {fileID: 1439179068109976243, guid: 592b374f235d17a4e87133120648f943, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.59623265
+      value: 0.61868966
       objectReference: {fileID: 0}
     - target: {fileID: 1439179068109976243, guid: 592b374f235d17a4e87133120648f943, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.59623265
+      value: 0.61868966
       objectReference: {fileID: 0}
     - target: {fileID: 1439179068109976243, guid: 592b374f235d17a4e87133120648f943, type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,6 +288,10 @@ PrefabInstance:
     - target: {fileID: 4762849831030005721, guid: 592b374f235d17a4e87133120648f943, type: 3}
       propertyPath: TrailModule.enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762849831030005721, guid: 592b374f235d17a4e87133120648f943, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 10.54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592b374f235d17a4e87133120648f943, type: 3}

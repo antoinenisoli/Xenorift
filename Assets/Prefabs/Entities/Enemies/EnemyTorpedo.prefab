@@ -55,12 +55,12 @@ MonoBehaviour:
   direction: 1
   visual: {fileID: 6274749757763221117}
   movingSpeed: 15
-  acceleration: 10
+  acceleration: 15
   friction: 10
   goldValue: 15
   target: {fileID: 0}
-  stopDistance: 130
-  attackDistance: 130
+  stopDistance: 110
+  attackDistance: 200
   up: 1
   deathSound: "torpidoz_d\xE9c\xE9d\xE8re"
   shooting:

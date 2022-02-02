@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 1
+    maxHealth: 10
   team: 1
   direction: 1
   visual: {fileID: 6753337910806155295}
@@ -59,7 +59,7 @@ MonoBehaviour:
   goldValue: 15
   target: {fileID: 0}
   stopDistance: 130
-  attackDistance: 130
+  attackDistance: 200
   up: 1
   deathSound: "basic_d\xE9c\xE9d\xE8re"
   shooting:

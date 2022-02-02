@@ -196,11 +196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  speed: 50
+  speed: 60
   damage: 1
+  destroyVFXName: impact_enemyprojectile
   spawnSound: snoiper_pew_pew
   deathSound: 
-  destroyVFXName: impact_enemyprojectile
   startSpeed: 2
   acceleration: 1
   rotationSpeed: 15
