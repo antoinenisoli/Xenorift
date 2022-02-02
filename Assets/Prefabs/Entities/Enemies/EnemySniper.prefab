@@ -58,7 +58,7 @@ MonoBehaviour:
   friction: 10
   target: {fileID: 0}
   stopDistance: 130
-  attackDistance: 130
+  attackDistance: 500
   up: 1
   deathSound: "snoiper_d\xE9c\xE9d\xE8re"
   shooting:

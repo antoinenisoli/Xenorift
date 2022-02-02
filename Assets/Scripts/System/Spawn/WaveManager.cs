@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         generationDelay = GameDevHelper.RandomInRange(randomGenerationDelay);
-        Spawn();
+        NextWave();
     }
 
     public Vector3 RandomPos()
@@ -42,13 +42,15 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator StartNewWave()
     {
+        yield return new WaitForEndOfFrame();
+        SoundManager.Instance.PlayAudio("new_wave");
+        EventManager.Instance.onNewWave.Invoke(waves[index].delay - 1);
         yield return new WaitForSeconds(waves[index].delay);
         Spawn();
     }
 
     void NextWave()
     {
-        index++;
         if (index < waves.Length)
             StartCoroutine(StartNewWave());
         else
@@ -77,7 +79,10 @@ public class WaveManager : MonoBehaviour
         if (index < waves.Length)
         {
             if (waves[index].Done)
+            {
+                index++;
                 NextWave();
+            }
         }
 
         timer += Time.deltaTime;

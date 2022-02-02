@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AreaBoundFX : MonoBehaviour
 {
-    [SerializeField] float minDistance = 3f;
+    [SerializeField] float minDistance = 30f;
     ParticleSystem fx;
     PlayerController player;
     Vector3 playerPos;
