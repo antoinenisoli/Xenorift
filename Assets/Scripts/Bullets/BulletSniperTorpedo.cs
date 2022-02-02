@@ -36,18 +36,11 @@ public class BulletSniperTorpedo : BulletAccelerating
         {
             direction = ship.transform.position - transform.position;
             float dist = transform.position.x - ship.transform.position.x;
-            print(direction);
-            if (dist < maxDistance)
+            if (Mathf.Abs(dist) < maxDistance)
                 active = false;
 
             if (active)
                 targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(direction.normalized), rotationSpeed * Time.deltaTime);
-        }
-        else if (myShooter)
-        {
-            Enemy myEnemy = myShooter as Enemy;
-            if (myEnemy)
-                transform.rotation = Quaternion.Euler(Vector3.up * -90 * myEnemy.direction);
         }
     }
 

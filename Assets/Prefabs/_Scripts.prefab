@@ -334,7 +334,7 @@ MonoBehaviour:
     radius: 20
   - soundType: "calinx_d\xE9c\xE9d\xE8re"
     clip: {fileID: 8300000, guid: c3910fcc3d512804f8b4b8e39a0406eb, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     radius: 20
   - soundType: "snoiper_d\xE9c\xE9d\xE8re"
@@ -400,7 +400,6 @@ Transform:
   - {fileID: 6270613776732804156}
   - {fileID: 3314305544372085100}
   - {fileID: 319583921904022671}
-  - {fileID: 5447211244811759885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -625,6 +624,7 @@ Transform:
   m_Children:
   - {fileID: 5710818187467084628}
   - {fileID: 363665566355408481}
+  - {fileID: 5447211244811759885}
   m_Father: {fileID: 6270613776821451311}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -650,19 +650,19 @@ MonoBehaviour:
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 6200190292159806160, guid: 31a31136e596d7945adc721564681cbe, type: 3}
-  - delay: 2
+  - delay: 5
     enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 252749453561906304, guid: 0314210f740c03d40a5c04aed499c1cd, type: 3}
-  - delay: 2
+  - delay: 5
     enableAsteroids: 1
     Done: 0
     waveProfiles:
     - count: 3
       enemyPrefab: {fileID: 1354979984528238402, guid: 71cbec674dbc4834a9d546a4ac9bea03, type: 3}
-  - delay: 2
+  - delay: 5
     enableAsteroids: 1
     Done: 0
     waveProfiles:
@@ -1766,15 +1766,19 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6270613776821451311}
+    m_TransformParent: {fileID: 3314305544372085100}
     m_Modifications:
     - target: {fileID: 2062037051017502183, guid: 5e5a2cb7f4499ad4d8ec492e95325d5a, type: 3}
       propertyPath: m_Name
       value: AlertSequence
       objectReference: {fileID: 0}
+    - target: {fileID: 2062037051017502183, guid: 5e5a2cb7f4499ad4d8ec492e95325d5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2062037051017502184, guid: 5e5a2cb7f4499ad4d8ec492e95325d5a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2062037051017502184, guid: 5e5a2cb7f4499ad4d8ec492e95325d5a, type: 3}
       propertyPath: m_LocalPosition.x
