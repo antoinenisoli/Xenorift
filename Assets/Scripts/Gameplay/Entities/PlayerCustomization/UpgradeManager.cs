@@ -42,6 +42,11 @@ public class UpgradeManager : MonoBehaviour
         RefreshShop();
     }
 
+    public void AddCurrency(int value)
+    {
+        Currency += value;
+    }
+
     int ComputeMoney(int quality, int value)
     {
         int compute = baseMoneyCost * quality;

@@ -5,17 +5,18 @@ using UnityEngine;
 public class EnemyShooter : Enemy
 {
     [Header(nameof(EnemyShooter))]
-    [SerializeField] EnemyShooting shooting;
-    bool close;
+    [SerializeField] EnemyShooting[] shooting;
 
     public override void DoStart()
     {
         base.DoStart();
-        shooting.Init(this);
+        foreach (var item in shooting)
+            item.Init(this);
     }
 
     public override void Attacking()
     {
-        shooting.Update(DistanceToPlayer() < attackDistance);
+        foreach (var item in shooting)
+            item.Update(DistanceToPlayer() < attackDistance);
     }
 }

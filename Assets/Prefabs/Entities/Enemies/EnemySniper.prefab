@@ -56,14 +56,15 @@ MonoBehaviour:
   movingSpeed: 3
   acceleration: 10
   friction: 10
+  goldValue: 15
   target: {fileID: 0}
   stopDistance: 130
   attackDistance: 500
   up: 1
   deathSound: "snoiper_d\xE9c\xE9d\xE8re"
   shooting:
-    profile:
-      name: Torpedo
+  - profile:
+      name: Regular
       bullet: {fileID: 864542070921596931, guid: dfa2d369fd2b9ee4086c0114f73a2e65, type: 3}
       shootPositions:
       - {fileID: 8879022772460790377}

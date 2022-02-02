@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ShootProfile
 {
-    public string name;
+    public string name = "Regular";
     public GameObject bullet;
     public Transform[] shootPositions;
     [HideInInspector] public float shootTimer;

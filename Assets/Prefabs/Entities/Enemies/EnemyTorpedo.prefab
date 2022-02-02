@@ -57,20 +57,27 @@ MonoBehaviour:
   movingSpeed: 15
   acceleration: 10
   friction: 10
+  goldValue: 15
   target: {fileID: 0}
   stopDistance: 130
   attackDistance: 130
   up: 1
   deathSound: "torpidoz_d\xE9c\xE9d\xE8re"
   shooting:
-    profile:
+  - profile:
       name: Regular
       bullet: {fileID: 864542070921596931, guid: a3dec72896363334897d29321d762d2a, type: 3}
       shootPositions:
       - {fileID: 7670907244404575548}
       - {fileID: 7670907244846481835}
       shootTimer: 0
-    randomShootRateRange: {x: 1, y: 2}
+    randomShootRateRange: {x: 1, y: 1.5}
+  - profile:
+      name: 
+      bullet: {fileID: 0}
+      shootPositions: []
+      shootTimer: 0
+    randomShootRateRange: {x: 0, y: 0}
 --- !u!54 &252749453561906308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7670907244404575548}
   m_Layer: 0
-  m_Name: ShootPos (1)
+  m_Name: ShootPosR
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

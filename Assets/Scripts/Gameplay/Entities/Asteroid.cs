@@ -11,7 +11,8 @@ public class Asteroid : MonoBehaviour, IProjectile
 
     [SerializeField] Material tangibleMat, intangibleMat;
     Collider myCollider;
-    MeshRenderer meshRenderer;
+    [SerializeField] Material outlineBaseMaterial;
+    [SerializeField] MeshRenderer meshRenderer;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class Asteroid : MonoBehaviour, IProjectile
         myCollider.enabled = checkDirection;
         Material[] newMaterials = meshRenderer.materials;
         newMaterials[0] = checkDirection ? tangibleMat : intangibleMat;
+        newMaterials[1] = checkDirection ? outlineBaseMaterial : intangibleMat;
         meshRenderer.materials = newMaterials;
 
         string fxName = checkDirection ? "asteroid_tangible" : "asteroid_intangible";

@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Enemy : Entity
 {
     [Header(nameof(Enemy))]
+    [SerializeField] int goldValue = 15;
     [SerializeField] protected PlayerController target;
     [SerializeField] protected float stopDistance = 3f;
     [SerializeField] protected float attackDistance = 5f;
@@ -56,6 +57,7 @@ public abstract class Enemy : Entity
     public override void Death()
     {
         base.Death();
+        UpgradeManager.Instance.AddCurrency(goldValue);
         Feedbacks.ScreenShake(0.3f, 3, 45);
         Feedbacks.FreezeFrame(0.3f, 0.2f);
         VFXManager.Instance.PlayVFX("ennemy_common_dead", transform.position);

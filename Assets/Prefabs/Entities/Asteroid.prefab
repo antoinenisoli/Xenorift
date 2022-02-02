@@ -50,6 +50,8 @@ MonoBehaviour:
   randomSpeedRange: {x: 5, y: 25}
   tangibleMat: {fileID: 2100000, guid: 61063225866a21740821862d743fd893, type: 2}
   intangibleMat: {fileID: 2100000, guid: 147f48a3a8f1eb447ab4d9abc1bce7d0, type: 2}
+  outlineBaseMaterial: {fileID: 2100000, guid: 970949e33007ca0429b43ed1af854f74, type: 2}
+  meshRenderer: {fileID: 8727218552979976342}
 --- !u!54 &2596663265147666573
 Rigidbody:
   m_ObjectHideFlags: 0

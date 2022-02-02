@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff967348d8bb14db8637f2c4414679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Currency: 50
+  Currency: 0
   qualityColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.036265016, g: 1, b: 0, a: 1}
