@@ -1359,7 +1359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2573487783072798942, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 218
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2573487783072798942, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1392,6 +1392,22 @@ PrefabInstance:
     - target: {fileID: 8925617658703928696, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
       propertyPath: m_Name
       value: Planet02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063492274453907305, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063492274453907305, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
+      propertyPath: ShapeModule.m_Rotation.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063492274453907305, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063492274453907305, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ca48bb17b72044d921fa1eb1b29016, type: 3}
@@ -2256,11 +2272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587944828404302430, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5587944828404302430, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 71
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 5587944828404302430, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2289,6 +2305,26 @@ PrefabInstance:
     - target: {fileID: 5587944828404302430, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822984873693791047, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822984873693791047, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822984873693791047, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822984873693791047, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
+      propertyPath: ShapeModule.m_Rotation.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822984873693791047, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8192199557406061381, guid: 9b0b05eac8a8b2d4bbe6f57d699266ea, type: 3}
       propertyPath: m_Name
