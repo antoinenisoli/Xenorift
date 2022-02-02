@@ -36,6 +36,7 @@ public class WaveManager : MonoBehaviour
 
     void Spawn()
     {
+        SoundManager.Instance.PlayAudio("new_wave");
         waves[index].Spawn(leftSpawn.position, rightSpawn.position, enemyParent);
         generateAsteroids = waves[index].enableAsteroids;
     }
@@ -43,7 +44,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator StartNewWave()
     {
         yield return new WaitForEndOfFrame();
-        SoundManager.Instance.PlayAudio("new_wave");
+        SoundManager.Instance.PlayAudio("alarm");
         EventManager.Instance.onNewWave.Invoke(waves[index].delay - 1);
         yield return new WaitForSeconds(waves[index].delay);
         Spawn();

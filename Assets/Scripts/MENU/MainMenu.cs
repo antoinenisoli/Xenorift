@@ -61,7 +61,9 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         ClickSound();
+        #if UNITY_STANDALONE
         Application.Quit();
+        #endif
     }
 
     void ClickSound() => SmallSoundManager.Instance.PlaySound(TypeOfSound.MenuClick);

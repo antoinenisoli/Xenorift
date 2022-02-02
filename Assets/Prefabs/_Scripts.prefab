@@ -357,6 +357,16 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     radius: 20
+  - soundType: new_wave
+    clip: {fileID: 8300000, guid: 464606895e0eae84ab98c1bd2bbf5e49, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: alarm
+    clip: {fileID: 8300000, guid: 08dca76ccd1fca1429e8825fd7c3bf01, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
 --- !u!1 &6270613776821451310
 GameObject:
   m_ObjectHideFlags: 0
