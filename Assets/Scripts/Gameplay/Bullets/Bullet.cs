@@ -29,7 +29,8 @@ public class Bullet : MonoBehaviour, IProjectile
     public void Start()
     {
         OnStart();
-        WaveManager.Instance.AddProjectile(this);
+        if (GameManager.Instance)
+            GameManager.Instance.AddProjectile(this);
     }
 
     public virtual void OnStart()
@@ -55,7 +56,8 @@ public class Bullet : MonoBehaviour, IProjectile
 
     private void OnDestroy()
     {
-        WaveManager.Instance.RemoveProjectile(this);
+        if (GameManager.Instance)
+            GameManager.Instance.RemoveProjectile(this);
     }
 
     public void Death()

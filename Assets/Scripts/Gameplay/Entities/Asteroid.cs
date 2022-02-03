@@ -24,7 +24,7 @@ public class Asteroid : MonoBehaviour, IProjectile
     private void Start()
     {
         EventManager.Instance.onPlayerFlip.AddListener(UpdateState);
-        WaveManager.Instance.AddProjectile(this);
+        GameManager.Instance.AddProjectile(this);
         UpdateState();
     }
 
@@ -35,7 +35,7 @@ public class Asteroid : MonoBehaviour, IProjectile
 
     private void OnDestroy()
     {
-        WaveManager.Instance.RemoveProjectile(this);
+        GameManager.Instance.RemoveProjectile(this);
     }
 
     private void OnTriggerEnter(Collider other)

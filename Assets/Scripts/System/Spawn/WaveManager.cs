@@ -12,11 +12,10 @@ public enum WaveType
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
-    [SerializeField] Transform enemyParent, asteroidParent;
-    [SerializeField] Transform leftSpawn, rightSpawn;
-    [SerializeField] Wave[] waves;
+    [SerializeField] protected Transform enemyParent, asteroidParent;
+    [SerializeField] protected Transform leftSpawn, rightSpawn;
+    [SerializeField] protected Wave[] waves;
 
-    List<IProjectile> projectiles = new List<IProjectile>();
     int index;
 
     public Wave currentWave => waves[index];
@@ -27,10 +26,6 @@ public class WaveManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
-        var list = FindObjectsOfType<MonoBehaviour>().OfType<IProjectile>();
-        foreach (IProjectile s in list)
-            s.Death();
     }
 
     private void OnValidate()
@@ -44,28 +39,18 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    public virtual void Start()
     {
-        NextWave();
-    }
+        if (waves == null)
+            waves = new Wave[0];
 
-    public Vector3 RandomPos()
-    {
-        Vector3 range = GameManager.Instance.moveBounds.extents;
-        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z + 5, range.z - 5));
-        return Vector3.forward * randomZ;
+        NextWave();
     }
 
     void Spawn()
     {
         SoundManager.Instance.PlayAudio("new_wave");
         currentWave.Spawn(leftSpawn.position, rightSpawn.position, enemyParent);
-    }
-
-    void ClearCurrentWave()
-    {
-        foreach (IProjectile s in projectiles)
-            s.Death();
     }
 
     IEnumerator StartNewWave()
@@ -77,19 +62,9 @@ public class WaveManager : MonoBehaviour
         Spawn();
     }
 
-    public void AddProjectile(IProjectile projectile)
-    {
-        projectiles.Add(projectile);
-    }
-
-    public void RemoveProjectile(IProjectile projectile)
-    {
-        projectiles.Remove(projectile);
-    }
-
     void NextWave()
     {
-        ClearCurrentWave();
+        GameManager.Instance.ClearProjectiles();
 
         if (index < waves.Length)
         {
@@ -102,20 +77,22 @@ public class WaveManager : MonoBehaviour
 
     void ManageSpawn()
     {
-        if (index < waves.Length)
+        if (currentWave.CheckEnd() && currentWave.Started)
         {
-            if (currentWave.CheckEnd() && currentWave.Started)
-            {
-                index++;
-                NextWave();
-            }
+            index++;
+            NextWave();
         }
     }
 
     private void Update()
     {
-        ManageSpawn();
-        if (index < waves.Length)
-            currentWave.UpdateWaves(leftSpawn.position, rightSpawn.position, asteroidParent);
+        if (waves != null && waves.Length > 0)
+        {
+            if (index < waves.Length)
+            {
+                ManageSpawn();
+                currentWave.UpdateWaves(leftSpawn.position, rightSpawn.position, asteroidParent);
+            }
+        }
     }
 }

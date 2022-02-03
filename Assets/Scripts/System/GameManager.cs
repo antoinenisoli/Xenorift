@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Move area")]
     [SerializeField] Color gizmoColor = Color.white;
     public Bounds moveBounds;
+    List<IProjectile> projectiles = new List<IProjectile>();
 
     private void OnDrawGizmos()
     {
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.onPlayerFlip.AddListener(FlipPlayer);
         EventManager.Instance.onPlayerDeath.AddListener(SpawnPlayer);
         EventManager.Instance.onPlayerFlip.AddListener(ColorEffect);
+        ClearProjectiles();
     }
 
     void ColorEffect()
@@ -60,6 +62,22 @@ public class GameManager : MonoBehaviour
     void Set(float f)
     {
         colorGrading.temperature.value = f;
+    }
+
+    public void ClearProjectiles()
+    {
+        foreach (IProjectile s in projectiles)
+            s.Death();
+    }
+
+    public void AddProjectile(IProjectile projectile)
+    {
+        projectiles.Add(projectile);
+    }
+
+    public void RemoveProjectile(IProjectile projectile)
+    {
+        projectiles.Remove(projectile);
     }
 
     public int RandomDirection()
