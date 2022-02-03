@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 25
+    maxHealth: 20
   team: 1
   direction: 1
   visual: {fileID: 6274749757763221117}
@@ -71,7 +71,7 @@ MonoBehaviour:
       - {fileID: 7670907244404575548}
       - {fileID: 7670907244846481835}
       shootTimer: 0
-    randomShootRateRange: {x: 1, y: 1.5}
+    randomShootRateRange: {x: 1.5, y: 2}
   - profile:
       name: 
       bullet: {fileID: 0}

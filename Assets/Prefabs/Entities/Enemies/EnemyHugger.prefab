@@ -48,11 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 50
-    maxHealth: 40
+    maxHealth: 30
   team: 1
   direction: -1
   visual: {fileID: 2990880728939286847}
-  movingSpeed: 45
+  movingSpeed: 40
   acceleration: 125
   friction: 6
   goldValue: 45

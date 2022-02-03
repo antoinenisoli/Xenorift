@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 10
+    maxHealth: 12
   team: 1
   direction: 1
   visual: {fileID: 6753337910806155295}

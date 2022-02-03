@@ -985,40 +985,52 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[1].delay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[2].delay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[3].delay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[4].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[5].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[6].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[7].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[8].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[9].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[10].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[11].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[12].delay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: waves.Array.data[0].enableAsteroids
