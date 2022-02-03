@@ -41,6 +41,7 @@ public class WaveManager : MonoBehaviour
     {
         generationDelay = GameDevHelper.RandomInRange(randomGenerationDelay);
         NextWave();
+        SoundManager.Instance.PlayAudio("alarm");
     }
 
     public Vector3 RandomPos()
@@ -63,8 +64,8 @@ public class WaveManager : MonoBehaviour
             s.Death();
 
         yield return new WaitForEndOfFrame();
-        SoundManager.Instance.PlayAudio("alarm");
-        EventManager.Instance.onNewWave.Invoke(waves[index].delay - 1);
+        /*SoundManager.Instance.PlayAudio("alarm");
+        EventManager.Instance.onNewWave.Invoke(waves[index].delay - 1);*/
         yield return new WaitForSeconds(waves[index].delay);
         StartCoroutine(NewAsteroidWave());
         Spawn();

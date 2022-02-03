@@ -56,7 +56,7 @@ MonoBehaviour:
   movingSpeed: 30
   acceleration: 10
   friction: 10
-  goldValue: 15
+  goldValue: 10
   target: {fileID: 0}
   stopDistance: 130
   attackDistance: 200

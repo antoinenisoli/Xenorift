@@ -6,15 +6,16 @@ using DG.Tweening;
 public class AlertSequence : MonoBehaviour
 {
     [SerializeField] Transform bigText;
-    [SerializeField] float FadeTime;
+    [SerializeField] float FadeTime, duration = 4f;
     [SerializeField] MeshRenderer[] textRenderers;
 
     private void Start()
     {
-        EventManager.Instance.onNewWave.AddListener(LaunchSequence);
+        //EventManager.Instance.onNewWave.AddListener(LaunchSequence);
+        LaunchSequence(duration);
     }
 
-    private void LaunchSequence(float duration)
+    void LaunchSequence(float duration)
     {
         foreach (var item in textRenderers)
             StartCoroutine(Fade(item, 1));
@@ -50,6 +51,7 @@ public class AlertSequence : MonoBehaviour
         }
 
         myMesh.material.color = color;
+        myMesh.gameObject.SetActive(false);
 }
 
     public void End()

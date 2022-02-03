@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1201,8 +1201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3d7a87e465397448cca4661b6fbdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _howToPlayPage: {fileID: 919198803}
-  _creditPage: {fileID: 1197095636}
+  _howToPlayPage: {fileID: 0}
+  _creditPage: {fileID: 0}
   _returnText: {fileID: 341248645}
   _continueButton: {fileID: 1923179493}
   _timeShowButton: 2
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
