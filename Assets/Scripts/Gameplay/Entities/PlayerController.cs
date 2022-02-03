@@ -143,6 +143,7 @@ public class PlayerController : Entity
     {
         switchTimer = 0;
         shooting.Update(false);
+        SoundManager.Instance.PlayAudio("player_cayou_tanjible");
         EventManager.Instance.onPlayerFlip.Invoke();
         BarrelRoll();
         direction *= -1;

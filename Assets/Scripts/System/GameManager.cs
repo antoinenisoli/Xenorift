@@ -71,6 +71,13 @@ public class GameManager : MonoBehaviour
             return -1;
     }
 
+    public Vector3 RandomPosAroundGameArea()
+    {
+        Vector3 range = moveBounds.extents;
+        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z, range.z));
+        return Vector3.forward * randomZ;
+    }
+
     public void SpawnPlayer()
     {
         SoundManager.Instance.PlayAudio("player_dead");

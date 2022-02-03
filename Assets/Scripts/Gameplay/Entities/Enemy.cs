@@ -12,7 +12,7 @@ public abstract class Enemy : Entity
     [SerializeField] protected float attackDistance = 5f;
     protected Vector3 velocity;
     public bool up = true;
-    EnemyWave myWave;
+    Wave myWave;
     float dist;
 
     [Header("Feedbacks")]
@@ -28,7 +28,7 @@ public abstract class Enemy : Entity
         }
     }
 
-    public void Init(EnemyWave wave, int direction)
+    public void Init(Wave wave, int direction)
     {
         myWave = wave;
         this.direction = direction;

@@ -3,45 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct WaveProfile
-{
-    public int count;
-    public GameObject enemyPrefab;
-}
-
-[System.Serializable]
 public class Wave
 {
-    public float delay = 2f;
-    public bool enableAsteroids = true;
-    public bool Done;
-    public WaveProfile[] waveProfiles;
-    protected List<int> directions = new List<int>();
+    public string name = "Wave";
+    public WaveType waveType;
+    public float delay = 5f;
+    public float maxDuration = 500;
+    public bool Started, Done;
+    public AsteroidWaveProfile asteroidSpawnProfile;
+    public AsteroidWallWaveProfile asteroidWallSpawnProfile;
+    public WaveProfile[] enemySpawnProfiles;
 
-    Vector3 RandomPos()
+    List<Enemy> enemies = new List<Enemy>();
+    float timer;
+
+    public void Spawn(Vector3 leftPos, Vector3 rightPos, Transform enemiesParent = null)
     {
-        Vector3 range = GameManager.Instance.moveBounds.extents;
-        float randomZ = GameDevHelper.RandomInRange(new Vector2(-range.z, range.z));
-        return Vector3.forward * randomZ;
+        Started = true;
+        asteroidSpawnProfile.Init();
+        asteroidWallSpawnProfile.Init();
+        SpawnEnemies(leftPos, rightPos, enemiesParent);
     }
 
-    public virtual List<GameObject> Spawn(Vector3 leftPos, Vector3 rightPos, Transform parent = null)
+    public bool CheckEnd()
     {
-        List<GameObject> list = new List<GameObject>();
-        foreach (var item in waveProfiles)
-            for (int i = 0; i < item.count; i++)
-            {
-                int direction = GameManager.Instance.RandomDirection();
-                directions.Add(direction);
-                GameObject spawnedEntity = Object.Instantiate(item.enemyPrefab, parent);
-                if (direction < 0)
-                    spawnedEntity.transform.position = RandomPos() + leftPos;
-                else
-                    spawnedEntity.transform.position = RandomPos() + rightPos;
+        switch (waveType)
+        {
+            case WaveType.Enemy:
+                return enemies.Count <= 0;
+            case WaveType.AsteroidOnly:
+                return timer > maxDuration;
+        }
 
-                list.Add(spawnedEntity);
+        return false;
+    }
+
+    public List<Enemy> SpawnEnemies(Vector3 leftPos, Vector3 rightPos, Transform parent = null)
+    {
+        List<Enemy> list = new List<Enemy>();
+        foreach (var item in enemySpawnProfiles)
+        {
+            if (item.generate)
+            {
+                for (int i = 0; i < item.count; i++)
+                {
+                    int direction = GameManager.Instance.RandomDirection();
+                    GameObject spawnedEntity = Object.Instantiate(item.prefab, parent);
+                    Enemy enemy = spawnedEntity.GetComponent<Enemy>();
+                    if (enemy)
+                    {
+                        enemies.Add(enemy);
+                        enemy.Init(this, direction);
+                    }
+
+                    Vector3 randomPos = GameManager.Instance.RandomPosAroundGameArea();
+                    if (direction < 0)
+                        spawnedEntity.transform.position = randomPos + leftPos;
+                    else
+                        spawnedEntity.transform.position = randomPos + rightPos;
+                }
             }
+        }
 
         return list;
+    }
+
+    public void Remove(Enemy enemy)
+    {
+        enemies.Remove(enemy);
+        Done = CheckEnd();
+    }
+
+    public void UpdateWaves(Vector3 leftPos, Vector3 rightPos, Transform asteroidParent = null)
+    {
+        if (Started)
+        {
+            timer += Time.deltaTime;
+            asteroidSpawnProfile.UpdateAsteroidWave(leftPos, rightPos, asteroidParent = null);
+            asteroidWallSpawnProfile.UpdateAsteroidWave(leftPos, rightPos, asteroidParent = null);
+        }
     }
 }

@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3425750291217413973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 306.5, y: 0, z: 0}
+  m_LocalPosition: {x: 115, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3314305544372085100}
@@ -641,38 +641,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyParent: {fileID: 0}
+  asteroidParent: {fileID: 0}
   leftSpawn: {fileID: 5710818187467084628}
   rightSpawn: {fileID: 363665566355408481}
   waves:
-  - delay: 5
-    enableAsteroids: 1
+  - name: Common
+    delay: 5
     Done: 0
-    waveProfiles:
-    - count: 3
-      enemyPrefab: {fileID: 6200190292159806160, guid: 31a31136e596d7945adc721564681cbe, type: 3}
-  - delay: 5
-    enableAsteroids: 1
+    asteroidSpawnProfile:
+      generate: 1
+      count: 500
+      prefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+      probability: 100
+      randomGenerationDelay: {x: 0, y: 10}
+    enemySpawnProfiles:
+    - generate: 1
+      count: 3
+      prefab: {fileID: 6200190292159806160, guid: 31a31136e596d7945adc721564681cbe, type: 3}
+  - name: Torpedo
+    delay: 5
     Done: 0
-    waveProfiles:
-    - count: 3
-      enemyPrefab: {fileID: 252749453561906304, guid: 0314210f740c03d40a5c04aed499c1cd, type: 3}
-  - delay: 5
-    enableAsteroids: 1
+    asteroidSpawnProfile:
+      generate: 1
+      count: 500
+      prefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+      probability: 100
+      randomGenerationDelay: {x: 0, y: 10}
+    enemySpawnProfiles:
+    - generate: 1
+      count: 3
+      prefab: {fileID: 252749453561906304, guid: 0314210f740c03d40a5c04aed499c1cd, type: 3}
+  - name: Snipers
+    delay: 5
     Done: 0
-    waveProfiles:
-    - count: 3
-      enemyPrefab: {fileID: 1354979984528238402, guid: 71cbec674dbc4834a9d546a4ac9bea03, type: 3}
-  - delay: 5
-    enableAsteroids: 1
+    asteroidSpawnProfile:
+      generate: 1
+      count: 500
+      prefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+      probability: 100
+      randomGenerationDelay: {x: 0, y: 10}
+    enemySpawnProfiles:
+    - generate: 1
+      count: 3
+      prefab: {fileID: 1354979984528238402, guid: 71cbec674dbc4834a9d546a4ac9bea03, type: 3}
+  - name: EnemyHugger
+    delay: 5
     Done: 0
-    waveProfiles:
-    - count: 3
-      enemyPrefab: {fileID: 531133006347493905, guid: a907a9e8b3faf7b4b9da5cb028138aef, type: 3}
-  generateAsteroids: 1
-  asteroidParent: {fileID: 0}
-  asteroidPrefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
-  maxGeneratedAsteroids: 50
-  randomGenerationDelay: {x: 0, y: 10}
+    asteroidSpawnProfile:
+      generate: 1
+      count: 500
+      prefab: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+      probability: 100
+      randomGenerationDelay: {x: 0, y: 10}
+    enemySpawnProfiles:
+    - generate: 1
+      count: 3
+      prefab: {fileID: 531133006347493905, guid: a907a9e8b3faf7b4b9da5cb028138aef, type: 3}
 --- !u!1001 &923194927574391137
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,8 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour, IProjectile
 {
     public int direction = 1;
-    [SerializeField] Vector2 randomSpeedRange;
-    float speed;
+    [SerializeField] float speed;
     Rigidbody rb;
 
     [SerializeField] Material tangibleMat, intangibleMat;
@@ -25,8 +24,13 @@ public class Asteroid : MonoBehaviour, IProjectile
     private void Start()
     {
         EventManager.Instance.onPlayerFlip.AddListener(UpdateState);
-        speed = GameDevHelper.RandomInRange(randomSpeedRange);
+        WaveManager.Instance.AddProjectile(this);
         UpdateState();
+    }
+
+    public void SetRandomSpeed(float rSpeed)
+    {
+        speed = rSpeed;
     }
 
     private void OnDestroy()
@@ -46,7 +50,9 @@ public class Asteroid : MonoBehaviour, IProjectile
 
     public void Death()
     {
-        VFXManager.Instance.PlayVFX("asteroid_tangible", transform.position);
+        if (VFXManager.Instance)
+            VFXManager.Instance.PlayVFX("asteroid_tangible", transform.position);
+
         Destroy(gameObject);
     }
 

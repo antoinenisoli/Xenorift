@@ -1002,6 +1002,54 @@ PrefabInstance:
       propertyPath: asteroidParent
       value: 
       objectReference: {fileID: 1780637147}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].waveType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidSpawnProfile.generate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].enemySpawnProfiles.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.prefab
+      value: 
+      objectReference: {fileID: 2596663265147666569, guid: 1d53fa9ef2c170840b8079c94b7f00da, type: 3}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.wallSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.wallSize.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.randomSpeedRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.randomSpeedRange.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.randomGenerationDelay.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.data[0].asteroidWallSpawnProfile.randomGenerationDelay.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270613776732804157, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.314
+      objectReference: {fileID: 0}
     - target: {fileID: 6270613776821451310, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: m_Name
       value: _Scripts
