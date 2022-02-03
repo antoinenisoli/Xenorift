@@ -28,7 +28,7 @@ public class PlayerHealthUI : MonoBehaviour
         foreach (var item in hpSlots)
             Destroy(item.gameObject);
 
-        hpSlots = new Image[health.MaxHealth];
+        hpSlots = new Image[health.MaxHealth - 1];
         for (int i = 0; i < hpSlots.Length; i++)
         {
             Image image = Instantiate(hpSlotPrefab, grid).GetComponent<Image>();
@@ -41,6 +41,9 @@ public class PlayerHealthUI : MonoBehaviour
     public void UpdateUI()
     {
         for (int i = 0; i < hpSlots.Length; i++)
-            hpSlots[i].sprite = health.CurrentHealth <= i ? emptySprite : fullSprite;
+        {
+            hpSlots[i].sprite = health.CurrentHealth - 1 <= i ? emptySprite : fullSprite;
+            hpSlots[i].enabled = health.CurrentHealth - 1 <= i ? false : true;
+        }
     }
 }

@@ -64,8 +64,9 @@ public class MainMenu : MonoBehaviour
         {
             ClickSound();
             _returnText.SetActive(true);
-            _howToPlayPage?.SetActive(false);
             _creditPage?.SetActive(true);
+            if (_howToPlayPage)
+                _howToPlayPage?.SetActive(false);
         }
     }
 
