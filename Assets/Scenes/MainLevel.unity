@@ -436,7 +436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224353460
 GameObject:
@@ -496,7 +496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780637146
 GameObject:
@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5270255045686618321, guid: 0acc51a822da1ea408a9fea87f41f67e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5270255045686618321, guid: 0acc51a822da1ea408a9fea87f41f67e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -870,6 +870,10 @@ PrefabInstance:
       propertyPath: asteroidParent
       value: 
       objectReference: {fileID: 1780637147}
+    - target: {fileID: 1098655479673290486, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
+      propertyPath: waves.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6270613776821451310, guid: b36772e7fa600aa49a104bc1ee3ff587, type: 3}
       propertyPath: m_Name
       value: _Scripts
@@ -933,7 +937,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7679491719014834337, guid: 05674961ee07e6a47833445f1344d50c, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7679491719014834337, guid: 05674961ee07e6a47833445f1344d50c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -108,6 +108,13 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Respawn(respawnDelay));
     }
 
+    public void NewLife(int value)
+    {
+        PlayerLife.MaxHealth += value;
+        PlayerLife.CurrentHealth += value;
+        EventManager.Instance.onPlayerHeal.Invoke();
+    }
+
     IEnumerator Respawn(float duration)
     {
         yield return new WaitForSeconds(duration);
