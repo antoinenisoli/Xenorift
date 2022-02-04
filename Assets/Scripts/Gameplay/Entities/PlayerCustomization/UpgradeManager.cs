@@ -30,7 +30,7 @@ public class UpgradeManager : MonoBehaviour
             foreach (var item in statData)
                 data.Add(item.stat, item);
 
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
         else
             Destroy(gameObject);

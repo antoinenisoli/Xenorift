@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 864542070921596931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 7613499680706147555}
   - {fileID: 2177805451250297736}
@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  speed: 100
+  speed: 50
   damage: 1
+  destroyVFXName: impact_enemyprojectile
   spawnSound: torpidoz_pew_pew
   deathSound: 
-  destroyVFXName: impact_enemyprojectile
-  startSpeed: 5
-  acceleration: 0.1
+  startSpeed: 10
+  acceleration: 0.5
 --- !u!54 &5644854261534586135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,6 +187,10 @@ PrefabInstance:
     - target: {fileID: 7683477950292028600, guid: 094575b6715e22141a52550cda4c1319, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607391220991136234, guid: 094575b6715e22141a52550cda4c1319, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.6862745
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 094575b6715e22141a52550cda4c1319, type: 3}

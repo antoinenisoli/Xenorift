@@ -32,30 +32,42 @@ public class MainMenu : MonoBehaviour
     void Menu()
     {
         StopAllCoroutines();
-        _howToPlayPage.SetActive(false);
-        _creditPage.SetActive(false);
+        if (_howToPlayPage)
+            _howToPlayPage.SetActive(false);
+        if (_creditPage)
+            _creditPage.SetActive(false);
+
         _continueButton.SetActive(false);
         _returnText.SetActive(false);
     }
 
     public void Play()
     {
-        ClickSound();
-        _creditPage?.SetActive(false);
+        if (_creditPage)
+        {
+            ClickSound();
+            _creditPage?.SetActive(false);
+        }
         
         if(_howToPlayPage != null)
         {
             _returnText.SetActive(true);
             StartCoroutine(HowToPlay());
         }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Credits()
     {
-        ClickSound();
-        _returnText.SetActive(true);
-        _howToPlayPage?.SetActive(false);
-        _creditPage?.SetActive(true);
+        if (_creditPage)
+        {
+            ClickSound();
+            _returnText.SetActive(true);
+            _creditPage?.SetActive(true);
+            if (_howToPlayPage)
+                _howToPlayPage?.SetActive(false);
+        }
     }
 
     public void Quit()

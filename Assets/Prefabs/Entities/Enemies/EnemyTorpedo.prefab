@@ -50,17 +50,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 25
+    maxHealth: 20
   team: 1
   direction: 1
   visual: {fileID: 6274749757763221117}
   movingSpeed: 15
-  acceleration: 10
+  acceleration: 15
   friction: 10
-  goldValue: 15
+  goldValue: 20
   target: {fileID: 0}
-  stopDistance: 130
-  attackDistance: 130
+  stopDistance: 110
+  attackDistance: 200
   up: 1
   deathSound: "torpidoz_d\xE9c\xE9d\xE8re"
   shooting:
@@ -71,7 +71,7 @@ MonoBehaviour:
       - {fileID: 7670907244404575548}
       - {fileID: 7670907244846481835}
       shootTimer: 0
-    randomShootRateRange: {x: 1, y: 1.5}
+    randomShootRateRange: {x: 1.5, y: 2}
   - profile:
       name: 
       bullet: {fileID: 0}
@@ -204,11 +204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd541bbbdeaf13e4c947e0ac45503193, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9618176
+      value: 0.9684696
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd541bbbdeaf13e4c947e0ac45503193, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.27369118
+      value: -0.2491317
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd541bbbdeaf13e4c947e0ac45503193, type: 3}
       propertyPath: m_LocalRotation.y
@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd541bbbdeaf13e4c947e0ac45503193, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -31.768
+      value: -28.852
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd541bbbdeaf13e4c947e0ac45503193, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

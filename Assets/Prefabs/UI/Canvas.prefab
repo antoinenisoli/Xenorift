@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8191720939430775074}
+  duration: 4
 --- !u!222 &5589998610020717515
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -648,6 +649,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226740692371340434, guid: 9bc079ee150c9b54098f5f535c14daf3, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226740692371340460, guid: 9bc079ee150c9b54098f5f535c14daf3, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6226740692371340461, guid: 9bc079ee150c9b54098f5f535c14daf3, type: 3}

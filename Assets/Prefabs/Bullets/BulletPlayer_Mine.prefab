@@ -65,14 +65,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f812a0c393aca143ab1d49e808ea93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  speed: 100
+  damage: 6
+  destroyVFXName: impact_mine
   spawnSound: player_mine1
   deathSound: player_mine_impact
-  destroyVFXName: impact_mine
-  team: 0
-  speed: 80
-  damage: 8
   startSpeed: 0
-  acceleration: 0.5
+  acceleration: 1.2
 --- !u!54 &8567096279586975427
 Rigidbody:
   m_ObjectHideFlags: 0

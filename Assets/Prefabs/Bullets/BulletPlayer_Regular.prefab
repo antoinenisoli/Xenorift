@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  speed: 130
-  damage: 1
+  speed: 150
+  damage: 2
   destroyVFXName: impact_laser
   spawnSound: player_laser
   deathSound: player_laser_impact
@@ -288,6 +288,14 @@ PrefabInstance:
     - target: {fileID: 7302060278461738144, guid: 442e43d7a5b656f4ca5a10a22265714c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302060278461738145, guid: 442e43d7a5b656f4ca5a10a22265714c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302060278461738145, guid: 442e43d7a5b656f4ca5a10a22265714c, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 442e43d7a5b656f4ca5a10a22265714c, type: 3}

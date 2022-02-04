@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class AlertScreenUI : MonoBehaviour
 {
     [SerializeField] Image image;
+    [SerializeField] float duration = 4f;
 
     private void Start()
     {
-        EventManager.Instance.onNewWave.AddListener(Animation);
+        //EventManager.Instance.onNewWave.AddListener(Animation);
         image.DOFade(0, 0);
+        Animation(duration);
     }
 
     public void Animation(float duration)

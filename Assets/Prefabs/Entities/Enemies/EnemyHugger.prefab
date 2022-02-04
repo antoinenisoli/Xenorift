@@ -48,19 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 50
-    maxHealth: 50
+    maxHealth: 30
   team: 1
   direction: -1
   visual: {fileID: 2990880728939286847}
-  movingSpeed: 45
+  movingSpeed: 40
   acceleration: 125
   friction: 6
+  goldValue: 45
   target: {fileID: 0}
-  stopDistance: 130
+  stopDistance: 150
   attackDistance: 130
   up: 1
   deathSound: "calinx_d\xE9c\xE9d\xE8re"
-  chargeDuration: 1.5
+  chargeDuration: 1.75
   attackRate: 5
   damage: 1
   attackSound: calinx_charj
