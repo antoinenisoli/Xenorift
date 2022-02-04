@@ -34,12 +34,12 @@ public class PlayerController : Entity
         laserVisor.SetActive(direction > 0);
         mineVisor.SetActive(direction < 0);
         switchTimer = switchDelay;
-        Hit();
     }
 
     public override void DoStart()
     {
         base.DoStart();
+        Hit();
         shooting.Init(this);
         shooting.Update(false);
     }
