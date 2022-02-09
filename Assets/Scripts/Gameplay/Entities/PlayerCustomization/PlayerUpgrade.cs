@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerStat
+public enum StatType
 {
     HP,
     Damage,
@@ -14,11 +14,11 @@ public enum PlayerStat
 public class PlayerUpgrade
 {
     public int moneyCost = 15;
-    public PlayerStat statToUpgrade;
+    public StatType statToUpgrade;
     public int upgradeValue;
     public int quality;
 
-    public PlayerUpgrade(int moneyCost, PlayerStat statToUpgrade, int upgradeValue, int quality)
+    public PlayerUpgrade(int moneyCost, StatType statToUpgrade, int upgradeValue, int quality)
     {
         this.moneyCost = moneyCost;
         this.statToUpgrade = statToUpgrade;

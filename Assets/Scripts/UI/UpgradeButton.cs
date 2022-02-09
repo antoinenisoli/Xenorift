@@ -26,7 +26,7 @@ public class UpgradeButton : MonoBehaviour
 
     public void Buy()
     {
-        UpgradeManager.Instance.BuyUpgrade(myUpgrade.moneyCost);
+        UpgradeManager.Instance.BuyUpgrade(myUpgrade.moneyCost, myUpgrade);
         Destroy(gameObject);
     }
 }

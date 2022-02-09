@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 struct StatData
 {
-    public PlayerStat stat;
+    public StatType stat;
     public Sprite statSprite;
     public RandomSelection[] randomQuality;
     public RandomSelection[] randomValue;
@@ -20,7 +20,10 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] Color[] qualityColors;
     [SerializeField] int baseMoneyCost = 5;
     [SerializeField] StatData[] statData;
-    Dictionary<PlayerStat, StatData> data = new Dictionary<PlayerStat, StatData>();
+    Dictionary<StatType, StatData> storedStatData = new Dictionary<StatType, StatData>();
+
+    [SerializeField] PlayerStat Health, Damage, Speed, BulletSpeed;
+    Dictionary<StatType, PlayerStat> storedStats = new Dictionary<StatType, PlayerStat>();
 
     private void Awake()
     {
@@ -28,9 +31,9 @@ public class UpgradeManager : MonoBehaviour
         {
             Instance = this;
             foreach (var item in statData)
-                data.Add(item.stat, item);
+                storedStatData.Add(item.stat, item);
 
-            //DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this);
         }
         else
             Destroy(gameObject);
@@ -39,7 +42,16 @@ public class UpgradeManager : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
+        PlayerStat[] stats = new PlayerStat[] { Health, Damage, Speed, BulletSpeed };
+        foreach (var item in stats)
+            storedStats.Add(item.myType, item);
+
         RefreshShop();
+    }
+
+    public PlayerStat GetStat(StatType type)
+    {
+        return storedStats[type];
     }
 
     public void AddCurrency(int value)
@@ -51,15 +63,14 @@ public class UpgradeManager : MonoBehaviour
     {
         int compute = baseMoneyCost * quality;
         float money = ((float)(value * 10)) / 100 * (float)compute;
-        print(money);
         return Mathf.RoundToInt(money + compute);
     }
 
     public PlayerUpgrade RandomUpgrade()
     {
-        System.Array array = System.Enum.GetValues(typeof(PlayerStat));
+        System.Array array = System.Enum.GetValues(typeof(StatType));
         int random = Random.Range(0, array.Length);
-        PlayerStat randomStat = (PlayerStat)array.GetValue(random);
+        StatType randomStat = (StatType)array.GetValue(random);
 
         int randomQuality = GameDevHelper.GetRandomValue(
             new RandomSelection(0, 0, 0.7f),
@@ -79,15 +90,16 @@ public class UpgradeManager : MonoBehaviour
         return new PlayerUpgrade(moneyCost, randomStat, randomValue * (randomQuality + 1), randomQuality);
     }
 
-    public void BuyUpgrade(int cost)
+    public void BuyUpgrade(int cost, PlayerUpgrade newUpgrade)
     {
         Currency -= cost;
+        GetStat(newUpgrade.statToUpgrade).NewUpgrade(newUpgrade);
         RefreshShop();
     }
 
-    public Sprite StatSprite(PlayerStat stat)
+    public Sprite StatSprite(StatType stat)
     {
-        return data[stat].statSprite;
+        return storedStatData[stat].statSprite;
     }
 
     public Color QualityColor(int quality)

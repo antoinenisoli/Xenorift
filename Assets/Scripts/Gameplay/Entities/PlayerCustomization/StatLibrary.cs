@@ -11,11 +11,11 @@ public class StatLibrary : ScriptableObject
     [ContextMenu(nameof(CreateList))]
     private void CreateList()
     {
-        System.Array array = System.Enum.GetValues(typeof(PlayerStat));
+        System.Array array = System.Enum.GetValues(typeof(StatType));
         statData = new StatData[array.Length];
         for (int i = 0; i < array.Length; i++)
         {
-            PlayerStat type = (PlayerStat)array.GetValue(i);
+            StatType type = (StatType)array.GetValue(i);
             StatData data = new StatData();
             data.stat = type;
             statData[i] = data;
